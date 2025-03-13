@@ -4,8 +4,6 @@ import Card from "./components/card";
 import { APIProvider, Map } from "@vis.gl/react-google-maps";
 
 export default function Home() {
-  // TODO: move api_key to /.env file
-  // const GOOGLE_MAPS_API_KEY = "AIzaSyBbAp6y5c-n-YB2gaWgq3yabpkyd1t8dRE";
   const apiKey = process.env.GOOGLE_MAPS_API_KEY;
 
   return (
