@@ -1,5 +1,9 @@
-import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
-import { ChevronRightIcon } from '@heroicons/react/20/solid'
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from "@headlessui/react";
+import { ChevronRightIcon } from "@heroicons/react/20/solid";
 import {
   CalendarIcon,
   ChartPieIcon,
@@ -7,38 +11,82 @@ import {
   FolderIcon,
   HomeIcon,
   UsersIcon,
-} from '@heroicons/react/24/outline'
+} from "@heroicons/react/24/outline";
 
 const navigation = [
-  { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
   {
-    name: 'Teams',
+    name: "Essentials Document and Preparation",
     icon: UsersIcon,
     current: false,
     children: [
-      { name: 'Engineering', href: '#' },
-      { name: 'Human Resources', href: '#' },
-      { name: 'Customer Success', href: '#' },
+      { name: "Visa & Documentation", href: "#" },
+      { name: "Housing Arrangement", href: "#" },
+      { name: "Health and Insurance", href: "#" },
+      { name: "Packing Guide", href: "#" },
     ],
   },
   {
-    name: 'Projects',
+    name: "Settling in",
+    icon: UsersIcon,
+    current: false,
+    children: [
+      { name: "Phone & Connectivity", href: "#" },
+      { name: "Banking & Finances", href: "#" },
+      { name: "Campus Access", href: "#" },
+      { name: "Transportation Options", href: "#" },
+      { name: "Everyday Essentials", href: "#" },
+    ],
+  },
+  {
+    name: "Campus Orientation and Study Essentials",
     icon: FolderIcon,
     current: false,
     children: [
-      { name: 'GraphQL API', href: '#' },
-      { name: 'iOS App', href: '#' },
-      { name: 'Android App', href: '#' },
-      { name: 'New Customer Portal', href: '#' },
+      { name: "Orientation & Onboarding", href: "#" },
+      { name: "University Tools & Accounts", href: "#" },
+      { name: "Best Study Spots", href: "#" },
+      { name: "Course Materials & Textbook", href: "#" },
+      { name: "Academic Success Tips", href: "#" },
     ],
   },
-  { name: 'Calendar', href: '#', icon: CalendarIcon, current: false },
-  { name: 'Documents', href: '#', icon: DocumentDuplicateIcon, current: false },
-  { name: 'Reports', href: '#', icon: ChartPieIcon, current: false },
-]
+  {
+    name: "Social and Academic Integration",
+    icon: FolderIcon,
+    current: false,
+    children: [
+      { name: "Student Organization & Clubs", href: "#" },
+      { name: "Religious and Spiritual Resources", href: "#" },
+      { name: "Events & Entertainment", href: "#" },
+      { name: "Academic Guidance", href: "#" },
+      { name: "Transfer Credits", href: "#" },
+    ],
+  },
+  {
+    name: "Job and Internship Opportunities",
+    icon: FolderIcon,
+    current: false,
+    children: [
+      { name: "On-campus job", href: "#" },
+      { name: "Curricular Practical Training (CPT)", href: "#" },
+      { name: "Optional Practical Training (OPT)", href: "#" },
+    ],
+  },
+  {
+    name: "Lifestyle & Adjustments",
+    icon: FolderIcon,
+    current: false,
+    children: [
+      { name: "Daily Commutes", href: "#" },
+      { name: "Restaurant Options", href: "#" },
+      { name: "Wather Gear", href: "#" },
+      { name: "", href: "#" },
+      { name: "", href: "#" },
+    ],
+  },
+];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function Example() {
@@ -61,22 +109,28 @@ export default function Example() {
                     <a
                       href={item.href}
                       className={classNames(
-                        item.current ? 'bg-gray-50' : 'hover:bg-gray-50',
-                        'group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold text-gray-700',
+                        item.current ? "bg-gray-50" : "hover:bg-gray-50",
+                        "group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold text-gray-700"
                       )}
                     >
-                      <item.icon aria-hidden="true" className="size-6 shrink-0 text-gray-400" />
+                      <item.icon
+                        aria-hidden="true"
+                        className="size-6 shrink-0 text-gray-400"
+                      />
                       {item.name}
                     </a>
                   ) : (
                     <Disclosure as="div">
                       <DisclosureButton
                         className={classNames(
-                          item.current ? 'bg-gray-50' : 'hover:bg-gray-50',
-                          'group flex w-full items-center gap-x-3 rounded-md p-2 text-left text-sm/6 font-semibold text-gray-700',
+                          item.current ? "bg-gray-50" : "hover:bg-gray-50",
+                          "group flex w-full items-center gap-x-3 rounded-md p-2 text-left text-sm/6 font-semibold text-gray-700"
                         )}
                       >
-                        <item.icon aria-hidden="true" className="size-6 shrink-0 text-gray-400" />
+                        <item.icon
+                          aria-hidden="true"
+                          className="size-6 shrink-0 text-gray-400"
+                        />
                         {item.name}
                         <ChevronRightIcon
                           aria-hidden="true"
@@ -91,8 +145,10 @@ export default function Example() {
                               as="a"
                               href={subItem.href}
                               className={classNames(
-                                subItem.current ? 'bg-gray-50' : 'hover:bg-gray-50',
-                                'block rounded-md py-2 pl-9 pr-2 text-sm/6 text-gray-700',
+                                subItem.current
+                                  ? "bg-gray-50"
+                                  : "hover:bg-gray-50",
+                                "block rounded-md py-2 pl-9 pr-2 text-sm/6 text-gray-700"
                               )}
                             >
                               {subItem.name}
@@ -123,5 +179,5 @@ export default function Example() {
         </ul>
       </nav>
     </div>
-  )
+  );
 }
