@@ -95,20 +95,16 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Sidebar() {
+export default function Sidebar({ open, setOpen }) {
   const [openSection, setOpenSection] = useState(null);
-  const [open, setOpen] = useState(true);
   return (
-    <div className="top-0 h-screen w-md sticky">
-      <div className="flex grow h-full flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6">
-        <div className="flex h-16 shrink-0 items-center">
-          <img
-            alt="Hamburger Icon"
-            src="/hamburger.png"
-            className="h-8 w-auto"
-          />
-        </div>
-        <nav className="flex flex-1 flex-col">
+    <div
+      className={`transition-all duration-300 ease-in-out overflow-hidden
+        ${open ? "w-md" : "w-0"} 
+        bg-white border-r border-gray-200`}
+    >
+      <div className="flex grow h-full flex-col gap-y-5 overflow-y-auto px-6">
+        <nav className="flex flex-1 flex-col mt-25">
           <ul role="list" className="flex flex-1 flex-col gap-y-7">
             <li>
               <ul role="list" className="-mx-2 space-y-1">
