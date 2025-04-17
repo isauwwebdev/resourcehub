@@ -142,14 +142,16 @@ export default function Sidebar({ open, setOpen }) {
                             aria-hidden="true"
                           />
                           {open && item.name}
-                          <ChevronRightIcon
-                            className={classNames(
-                              "ml-auto size-5 shrink-0 text-gray-400",
-                              openSection === item.name &&
-                                "rotate-90 text-gray-500"
-                            )}
-                            aria-hidden="true"
-                          />
+                          {open && (
+                            <ChevronRightIcon
+                              className={classNames(
+                                "ml-auto size-5 shrink-0 text-gray-400",
+                                openSection === item.name &&
+                                  "rotate-90 text-gray-500"
+                              )}
+                              aria-hidden="true"
+                            />
+                          )}
                         </button>
 
                         {open && openSection === item.name && (
