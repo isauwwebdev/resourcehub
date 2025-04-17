@@ -3,6 +3,8 @@ import React from "react";
 import CardViewer from "./components/cardViewer";
 import { APIProvider, Map } from "@vis.gl/react-google-maps";
 import Sidebar from "./components/sidebar";
+import { useState } from "react";
+import Card from "./components/card";
 
 export default function Home() {
   const apiKey = process.env.GOOGLE_MAPS_API_KEY;
