@@ -4,7 +4,7 @@ import CardViewer from "./components/cardViewer";
 import { APIProvider, Map } from "@vis.gl/react-google-maps";
 import Sidebar from "./components/sidebar";
 import { useState } from "react";
-import Card from "./components/card";
+// import Card from "./components/card";
 
 export default function Home() {
   const apiKey = process.env.GOOGLE_MAPS_API_KEY;
@@ -26,7 +26,7 @@ export default function Home() {
           </div>
           <div className="h-full w-full ">
             {/* MAIN PAGE HERE */}
-            <Card />
+            <CardViewer />
             <Map
               style={{ width: "100vw", height: "100vh" }}
               gestureHandling={"greedy"}

@@ -100,7 +100,7 @@ export default function Sidebar({ open, setOpen }) {
   return (
     <div
       className={`transition-all duration-300 ease-in-out overflow-hidden
-        ${open ? "w-md" : "w-0"} 
+        ${open ? "w-md" : "w-20"} 
         bg-white border-r border-gray-200`}
     >
       <div className="flex grow h-full flex-col gap-y-5 overflow-y-auto px-6">
@@ -122,7 +122,7 @@ export default function Sidebar({ open, setOpen }) {
                           className="size-6 shrink-0 text-gray-400"
                           aria-hidden="true"
                         />
-                        {item.name}
+                        {open && item.name}
                       </a>
                     ) : (
                       <div>
@@ -141,7 +141,7 @@ export default function Sidebar({ open, setOpen }) {
                             className="size-6 shrink-0 text-gray-400"
                             aria-hidden="true"
                           />
-                          {item.name}
+                          {open && item.name}
                           <ChevronRightIcon
                             className={classNames(
                               "ml-auto size-5 shrink-0 text-gray-400",
@@ -152,7 +152,7 @@ export default function Sidebar({ open, setOpen }) {
                           />
                         </button>
 
-                        {openSection === item.name && (
+                        {open && openSection === item.name && (
                           <ul className="mt-1 px-2">
                             {item.children.map((subItem) => (
                               <li key={subItem.name}>
