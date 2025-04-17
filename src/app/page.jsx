@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Card from "./components/card";
+import CardViewer from "./components/cardViewer";
 import { APIProvider, Map } from "@vis.gl/react-google-maps";
 
 export default function Home() {
@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <APIProvider apiKey={apiKey}>
       <div>
-        <Card />
+        <CardViewer />
         <Map
           style={{ width: "100vw", height: "100vh" }}
           gestureHandling={"greedy"}
