@@ -34,7 +34,9 @@ export default function Card({
             </svg>
           </button>
           <button
-            onClick={onNext}
+            onClick={() => {
+              onNext, startAnimation;
+            }}
             className="text-gray-600 hover:text-black z-10"
           >
             <svg
@@ -53,21 +55,34 @@ export default function Card({
             </svg>
           </button>
         </div>
-        <div className="relative w-11 h-11 mb-8">
-          <Image src={iconSrc} alt="Icon" layout="fill" objectFit="cover" />
+        {/* card start here */}
+        <div className="flex">
+          <div className="flex items-center justify-center w-[150px] h-[150px]">
+            <Image
+              src="/train_frame.png"
+              alt="train frame"
+              width={150}
+              height={150}
+            />
+          </div>
+          <div>
+            <div className="relative w-11 h-11 mb-8 ">
+              <Image src={iconSrc} alt="Icon" layout="fill" objectFit="cover" />
+            </div>
+            <h2 className="font-poppins font-medium text-[14px] leading-[100%] tracking-tight text-red-800 mb-3">
+              {location}
+            </h2>
+            <h3 className="font-poppins font-medium text-[30px] leading-[100%] tracking-tight text-gray-700 mb-7">
+              {title}
+            </h3>
+            <p className="font-poppins font-normal text-[18px] leading-[100%] tracking-tight text-gray-600 mb-16">
+              {description}
+            </p>
+            <button className="px-18 py-2 bg-red-800 text-white text-lg font-semibold rounded-lg hover:bg-red-600 focus:outline-none">
+              Visit
+            </button>
+          </div>
         </div>
-        <h2 className="font-poppins font-medium text-[14px] leading-[100%] tracking-tight text-red-800 mb-3">
-          {location}
-        </h2>
-        <h3 className="font-poppins font-medium text-[30px] leading-[100%] tracking-tight text-gray-700 mb-7">
-          {title}
-        </h3>
-        <p className="font-poppins font-normal text-[18px] leading-[100%] tracking-tight text-gray-600 mb-16">
-          {description}
-        </p>
-        <button className="px-18 py-2 bg-red-800 text-white text-lg font-semibold rounded-lg hover:bg-red-600 focus:outline-none">
-          Visit
-        </button>
       </div>
     </div>
   );

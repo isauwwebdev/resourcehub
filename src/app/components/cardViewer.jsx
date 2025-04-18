@@ -55,6 +55,7 @@ const cards = [
 
 export default function CardViewer() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev === 0 ? cards.length - 1 : prev - 1));
