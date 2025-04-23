@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Card from "../components/card";
+import cards from "/public/assets/card/cards.json"; // TODO: import from JSON
 
 const cards = [
   {
