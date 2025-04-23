@@ -13,13 +13,19 @@ import {
   FolderIcon,
   HomeIcon,
   UsersIcon,
+  DocumentIcon,
+  AcademicCapIcon,
+  UserPlusIcon,
+  BuildingOfficeIcon,
+  TicketIcon,
+  ChatBubbleLeftEllipsisIcon,
 } from "@heroicons/react/24/outline";
 import { Festive } from "next/font/google";
 
 const navigation = [
   {
     name: "Essentials Document and Preparation",
-    icon: UsersIcon,
+    icon: DocumentIcon,
     current: false,
     children: [
       { name: "Visa & Documentation", href: "#" },
@@ -30,7 +36,7 @@ const navigation = [
   },
   {
     name: "Settling in",
-    icon: UsersIcon,
+    icon: HomeIcon,
     current: false,
     children: [
       { name: "Phone & Connectivity", href: "#" },
@@ -41,7 +47,7 @@ const navigation = [
   },
   {
     name: "Campus Orientation and Study Essentials",
-    icon: FolderIcon,
+    icon: AcademicCapIcon,
     current: false,
     children: [
       { name: "Orientation & Onboarding", href: "#" },
@@ -54,7 +60,7 @@ const navigation = [
   },
   {
     name: "Social and Academic Integration",
-    icon: FolderIcon,
+    icon: UserPlusIcon,
     current: false,
     children: [
       { name: "Student Organization & Clubs", href: "#" },
@@ -64,7 +70,7 @@ const navigation = [
   },
   {
     name: "Job and Internship Opportunities",
-    icon: FolderIcon,
+    icon: BuildingOfficeIcon,
     current: false,
     children: [
       { name: "On-campus Job", href: "#" },
@@ -74,7 +80,7 @@ const navigation = [
   },
   {
     name: "Lifestyle & Adjustments",
-    icon: FolderIcon,
+    icon: TicketIcon,
     current: false,
     children: [
       { name: "Cultural Adjustment", href: "#" },
@@ -85,7 +91,7 @@ const navigation = [
   },
   {
     name: "Sign Up for ISAUW",
-    icon: FolderIcon,
+    icon: ChatBubbleLeftEllipsisIcon,
     current: false,
     href: "#",
   },
@@ -97,86 +103,99 @@ function classNames(...classes) {
 
 export default function Sidebar({ open, setOpen }) {
   const [openSection, setOpenSection] = useState(null);
+
   return (
     <div
-      className={`transition-all duration-300 ease-in-out overflow-hidden
-        ${open ? "w-md" : "w-20"} 
-        bg-white border-r border-gray-200`}
+      className={classNames(
+        "transition-all duration-300 overflow-hidden bg-white border-r border-gray-200",
+        open
+          ? "w-full md:w-sm lg:w-md" // open sidebar width
+          : "w-0 md:w-16 lg:w-20" // hide on small, show collapsed on md+
+      )}
     >
-      <div className="flex grow h-full flex-col gap-y-5 overflow-y-auto px-6">
-        <nav className="flex flex-1 flex-col mt-25">
-          <ul role="list" className="flex flex-1 flex-col gap-y-7">
-            <li>
-              <ul role="list" className="-mx-2 space-y-1">
-                {navigation.map((item) => (
-                  <li key={item.name}>
-                    {!item.children ? (
-                      <a
-                        href={item.href}
-                        className={classNames(
-                          item.current ? "bg-gray-50" : "hover:bg-gray-50",
-                          "group flex gap-x-3 rounded-md p-2 text-base/6 font-semibold text-gray-700"
-                        )}
-                      >
-                        <item.icon
-                          className="size-6 shrink-0 text-gray-400"
+      <div className="flex flex-col w-full h-screen item-center overflow-y-auto py-4">
+        <nav className="mt-7 w-full">
+          <ul role="list" className="space-y-1 px-2 mt-10">
+            {navigation.map((item) => (
+              <li key={item.name}>
+                {!item.children ? (
+                  <a
+                    href={item.href}
+                    className={classNames(
+                      item.current ? "bg-gray-50" : "hover:bg-gray-50",
+                      "group flex w-full items-center rounded-md py-5 lg:text-base text-sm font-semibold text-gray-700",
+                      open ? "justify-start gap-x-3" : "justify-center"
+                    )}
+                  >
+                    <item.icon
+                      className="size-6 shrink-0 text-gray-400"
+                      aria-hidden="true"
+                    />
+                    {open && (
+                      <span className="ml-1 whitespace-nowrap">
+                        {item.name}
+                      </span>
+                    )}
+                  </a>
+                ) : (
+                  <div>
+                    <button
+                      onClick={() =>
+                        setOpenSection(
+                          openSection === item.name ? null : item.name
+                        )
+                      }
+                      disabled={!open}
+                      className={classNames(
+                        item.current ? "bg-gray-50" : "hover:bg-gray-50",
+                        "group flex w-full rounded-md lg:text-base p-2 text-sm font-semibold text-gray-700 my-2",
+                        open ? "justify-start gap-x-3" : "justify-center"
+                      )}
+                    >
+                      <item.icon
+                        className="size-6 shrink-0 text-gray-400"
+                        aria-hidden="true"
+                      />
+                      {open && (
+                        <span className="ml-1 whitespace-nowrap">
+                          {item.name}
+                        </span>
+                      )}
+                      {open && (
+                        <ChevronRightIcon
+                          className={classNames(
+                            "ml-auto size-5 shrink-0 text-gray-400",
+                            openSection === item.name &&
+                              "rotate-90 text-gray-500"
+                          )}
                           aria-hidden="true"
                         />
-                        {open && item.name}
-                      </a>
-                    ) : (
-                      <div>
-                        <button
-                          onClick={() =>
-                            setOpenSection(
-                              openSection === item.name ? null : item.name
-                            )
-                          }
-                          className={classNames(
-                            item.current ? "bg-gray-50" : "hover:bg-gray-50",
-                            "group flex w-full items-center gap-x-3 rounded-md p-2 text-left text-base/6 font-semibold text-gray-700"
-                          )}
-                        >
-                          <item.icon
-                            className="size-6 shrink-0 text-gray-400"
-                            aria-hidden="true"
-                          />
-                          {open && item.name}
-                          <ChevronRightIcon
-                            className={classNames(
-                              "ml-auto size-5 shrink-0 text-gray-400",
-                              openSection === item.name &&
-                                "rotate-90 text-gray-500"
-                            )}
-                            aria-hidden="true"
-                          />
-                        </button>
+                      )}
+                    </button>
 
-                        {open && openSection === item.name && (
-                          <ul className="mt-1 px-2">
-                            {item.children.map((subItem) => (
-                              <li key={subItem.name}>
-                                <a
-                                  href={subItem.href}
-                                  className={classNames(
-                                    subItem.current
-                                      ? "bg-gray-50"
-                                      : "hover:bg-gray-50",
-                                    "block rounded-md py-2 pl-9 pr-2 text-base/6 text-gray-700"
-                                  )}
-                                >
-                                  {subItem.name}
-                                </a>
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </div>
+                    {open && openSection === item.name && (
+                      <ul className="mt-1 px-2">
+                        {item.children.map((subItem) => (
+                          <li key={subItem.name}>
+                            <a
+                              href={subItem.href}
+                              className={classNames(
+                                subItem.current
+                                  ? "bg-gray-50"
+                                  : "hover:bg-gray-50",
+                                "block rounded-md py-2 pl-9 pr-2 text-sm text-gray-700"
+                              )}
+                            >
+                              {subItem.name}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
                     )}
-                  </li>
-                ))}
-              </ul>
-            </li>
+                  </div>
+                )}
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
