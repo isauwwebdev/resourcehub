@@ -123,7 +123,7 @@ export default function Sidebar({ open, setOpen }) {
                     href={item.href}
                     className={classNames(
                       item.current ? "bg-gray-50" : "hover:bg-gray-50",
-                      "group flex w-full items-center rounded-md py-5 lg:text-base text-sm font-semibold text-gray-700",
+                      "group flex w-full items-center p-2 rounded-md lg:text-base text-sm font-semibold text-gray-700",
                       open ? "justify-start gap-x-3" : "justify-center"
                     )}
                   >
