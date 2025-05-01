@@ -3,8 +3,9 @@ import React from "react";
 import CardViewer from "./components/cardViewer";
 import { APIProvider, Map } from "@vis.gl/react-google-maps";
 import Sidebar from "./components/sidebar";
+import HamburgerIcon from "./components/hamburgerIcon";
+import Navbar from "./components/navbar";
 import { useState } from "react";
-import { Bars3Icon } from "@heroicons/react/24/outline";
 // import Card from "./components/card";
 
 function classNames(...classes) {
@@ -20,16 +21,8 @@ export default function Home() {
       <div className="flex h-screen">
         <Sidebar open={open} setOpen={setOpen} />
         <div className="flex-1 relative overflow-hidden">
-          <div
-            className={classNames(
-              "z-50 fixed top-4 h-screen transition-all duration-300",
-              open ? "left-4" : "lg:left-6 md:left-3.5 left-6"
-            )}
-          >
-            <button onClick={() => setOpen(!open)}>
-              <Bars3Icon className="h-8 w-8 text-gray-400" aria-hidden="true" />
-            </button>
-          </div>
+          <Navbar open={open} setOpen={setOpen} />
+          <HamburgerIcon open={open} setOpen={setOpen} />
           <div className="h-full w-full ">
             {/* MAIN PAGE HERE */}
             <CardViewer />

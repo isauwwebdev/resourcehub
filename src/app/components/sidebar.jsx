@@ -107,7 +107,7 @@ export default function Sidebar({ open, setOpen }) {
   return (
     <div
       className={classNames(
-        "transition-all duration-300 overflow-hidden bg-white border-r border-gray-200",
+        "transition-all duration-300 overflow-hidden bg-white border-r border-gray-200 ",
         open
           ? "w-full md:w-sm lg:w-md" // open sidebar width
           : "w-0 md:w-16 lg:w-20" // hide on small, show collapsed on md+
@@ -124,11 +124,12 @@ export default function Sidebar({ open, setOpen }) {
                     className={classNames(
                       item.current ? "bg-gray-50" : "hover:bg-gray-50",
                       "group flex w-full items-center p-2 rounded-md lg:text-base text-sm font-semibold text-gray-700",
-                      open ? "justify-start gap-x-3" : "justify-center"
+                      open ? "justify-start gap-x-3" : "justify-center",
+                      "transition transform hover:scale-[1.03] hover:translate-x-1"
                     )}
                   >
                     <item.icon
-                      className="size-6 shrink-0 text-gray-400"
+                      className="size-6 shrink-0 text-gray-400 group-hover:text-red-800 group-hover:drop-shadow-md transition duration-200"
                       aria-hidden="true"
                     />
                     {open && (
@@ -149,11 +150,12 @@ export default function Sidebar({ open, setOpen }) {
                       className={classNames(
                         item.current ? "bg-gray-50" : "hover:bg-gray-50",
                         "group flex w-full rounded-md lg:text-base p-2 text-sm font-semibold text-gray-700 my-2",
-                        open ? "justify-start gap-x-3" : "justify-center"
+                        open ? "justify-start gap-x-3" : "justify-center",
+                        "transition transform hover:scale-[1.03] hover:translate-x-1"
                       )}
                     >
                       <item.icon
-                        className="size-6 shrink-0 text-gray-400"
+                        className="size-6 shrink-0 text-gray-400 group-hover:text-red-800 group-hover:drop-shadow-md transition duration-200"
                         aria-hidden="true"
                       />
                       {open && (
@@ -183,7 +185,7 @@ export default function Sidebar({ open, setOpen }) {
                                 subItem.current
                                   ? "bg-gray-50"
                                   : "hover:bg-gray-50",
-                                "block rounded-md py-2 pl-9 pr-2 text-sm text-gray-700"
+                                "block rounded-md py-2 pl-9 pr-2 text-sm text-gray-700 transition transform hover:scale-[1.02] hover:translate-x-1"
                               )}
                             >
                               {subItem.name}
