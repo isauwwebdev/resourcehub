@@ -3,8 +3,14 @@ import React from "react";
 import CardViewer from "./components/cardViewer";
 import { APIProvider, Map } from "@vis.gl/react-google-maps";
 import Sidebar from "./components/sidebar";
+import HamburgerIcon from "./components/hamburgerIcon";
+import Navbar from "./components/navbar";
 import { useState } from "react";
 // import Card from "./components/card";
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
 
 export default function Home() {
   const apiKey = process.env.GOOGLE_MAPS_API_KEY;
@@ -15,15 +21,8 @@ export default function Home() {
       <div className="flex h-screen">
         <Sidebar open={open} setOpen={setOpen} />
         <div className="flex-1 relative overflow-hidden">
-          <div className="p-4 z-50 fixed top-4 left-4 bg-white">
-            <button onClick={() => setOpen(!open)}>
-              <img
-                src="/hamburger.png"
-                alt="Hamburger Icon"
-                className="h-8 w-auto"
-              />
-            </button>
-          </div>
+          <Navbar open={open} setOpen={setOpen} />
+          <HamburgerIcon open={open} setOpen={setOpen} />
           <div className="h-full w-full ">
             {/* MAIN PAGE HERE */}
             <CardViewer />

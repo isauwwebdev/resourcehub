@@ -15,168 +15,194 @@ import {
   FolderIcon,
   HomeIcon,
   UsersIcon,
-  XMarkIcon,
+  DocumentIcon,
+  AcademicCapIcon,
+  UserPlusIcon,
+  BuildingOfficeIcon,
+  TicketIcon,
+  ChatBubbleLeftEllipsisIcon,
 } from "@heroicons/react/24/outline";
 
 const navigation = [
-  { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
-  { name: "Team", href: "#", icon: UsersIcon, current: false },
-  { name: "Projects", href: "#", icon: FolderIcon, current: false },
-  { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
-  { name: "Documents", href: "#", icon: DocumentDuplicateIcon, current: false },
-  { name: "Reports", href: "#", icon: ChartPieIcon, current: false },
+  {
+    name: "Essentials Document and Preparation",
+    icon: DocumentIcon,
+    current: false,
+    children: [
+      { name: "Visa & Documentation", href: "#" },
+      { name: "Housing Arrangement", href: "#" },
+      { name: "Health and Insurance", href: "#" },
+      { name: "Packing Guide", href: "#" },
+    ],
+  },
+  {
+    name: "Settling in",
+    icon: HomeIcon,
+    current: false,
+    children: [
+      { name: "Phone & Connectivity", href: "#" },
+      { name: "Banking & Finances", href: "#" },
+      { name: "Transportation Options", href: "#" },
+      { name: "Everyday Essentials", href: "#" },
+    ],
+  },
+  {
+    name: "Campus Orientation and Study Essentials",
+    icon: AcademicCapIcon,
+    current: false,
+    children: [
+      { name: "Orientation & Onboarding", href: "#" },
+      { name: "Campus Access", href: "#" },
+      { name: "University Tools & Academic Success", href: "#" },
+      { name: "Transfer Credits", href: "#" },
+      { name: "Best Study Spots", href: "#" },
+      { name: "Course Materials & Textbook", href: "#" },
+    ],
+  },
+  {
+    name: "Social and Academic Integration",
+    icon: UserPlusIcon,
+    current: false,
+    children: [
+      { name: "Student Organization & Clubs", href: "#" },
+      { name: "Religious and Spiritual Resources", href: "#" },
+      { name: "Events & Entertainment", href: "#" },
+    ],
+  },
+  {
+    name: "Job and Internship Opportunities",
+    icon: BuildingOfficeIcon,
+    current: false,
+    children: [
+      { name: "On-campus Job", href: "#" },
+      { name: "Curricular Practical Training (CPT)", href: "#" },
+      { name: "Optional Practical Training (OPT)", href: "#" },
+    ],
+  },
+  {
+    name: "Lifestyle & Adjustments",
+    icon: TicketIcon,
+    current: false,
+    children: [
+      { name: "Cultural Adjustment", href: "#" },
+      { name: "Shopping Options", href: "#" },
+      { name: "Restaurant Options", href: "#" },
+      { name: "Weather Gear", href: "#" },
+    ],
+  },
+  {
+    name: "Sign Up for ISAUW",
+    icon: ChatBubbleLeftEllipsisIcon,
+    current: false,
+    href: "#",
+  },
 ];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Example() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+export default function Sidebar({ open, setOpen }) {
+  const [openSection, setOpenSection] = useState(null);
 
   return (
-    <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-white">
-        <body class="h-full">
-        ```
-      */}
-      <div>
-        <Dialog
-          open={sidebarOpen}
-          onClose={setSidebarOpen}
-          className="relative z-50 lg:hidden"
-        >
-          <DialogBackdrop
-            transition
-            className="fixed inset-0 bg-gray-900/80 transition-opacity duration-300 ease-linear data-closed:opacity-0"
-          />
-
-          <div className="fixed inset-0 flex">
-            <DialogPanel
-              transition
-              className="relative mr-16 flex w-full max-w-xs flex-1 transform transition duration-300 ease-in-out data-closed:-translate-x-full"
-            >
-              <TransitionChild>
-                <div className="absolute top-0 left-full flex w-16 justify-center pt-5 duration-300 ease-in-out data-closed:opacity-0">
-                  <button
-                    type="button"
-                    onClick={() => setSidebarOpen(false)}
-                    className="-m-2.5 p-2.5"
-                  >
-                    <span className="sr-only">Close sidebar</span>
-                    <XMarkIcon
-                      aria-hidden="true"
-                      className="size-6 text-white"
-                    />
-                  </button>
-                </div>
-              </TransitionChild>
-
-              <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-2 ring-1 ring-white/10">
-                <div className="flex h-16 shrink-0 items-center">
-                  <img
-                    alt="Your Company"
-                    src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
-                    className="h-8 w-auto"
-                  />
-                </div>
-                <nav className="flex flex-1 flex-col">
-                  <ul role="list" className="-mx-2 flex-1 space-y-1">
-                    {navigation.map((item) => (
-                      <li key={item.name}>
-                        <a
-                          href={item.href}
-                          className={classNames(
-                            item.current
-                              ? "bg-gray-800 text-white"
-                              : "text-gray-400 hover:bg-gray-800 hover:text-white",
-                            "group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold"
-                          )}
-                        >
-                          <item.icon
-                            aria-hidden="true"
-                            className="size-6 shrink-0"
-                          />
-                          {item.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </nav>
-              </div>
-            </DialogPanel>
-          </div>
-        </Dialog>
-
-        {/* Static sidebar for desktop */}
-        <div className="hidden lg:fixed lg:inset-y-0 lg:left-0 lg:z-50 lg:block lg:w-20 lg:overflow-y-auto lg:bg-gray-900 lg:pb-4">
-          <div className="flex h-16 shrink-0 items-center justify-center">
-            <img
-              alt="Your Company"
-              src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
-              className="h-8 w-auto"
-            />
-          </div>
-          <nav className="mt-8">
-            <ul role="list" className="flex flex-col items-center space-y-1">
-              {navigation.map((item) => (
-                <li key={item.name}>
+    <div
+      className={classNames(
+        "transition-all duration-300 overflow-hidden bg-white border-r border-gray-200 ",
+        open
+          ? "w-full md:w-sm lg:w-md" // open sidebar width
+          : "w-0 md:w-16 lg:w-20" // hide on small, show collapsed on md+
+      )}
+    >
+      <div className="flex flex-col w-full h-screen item-center overflow-y-auto py-4">
+        <nav className="mt-7 w-full">
+          <ul role="list" className="space-y-1 px-2 mt-10">
+            {navigation.map((item) => (
+              <li key={item.name}>
+                {!item.children ? (
                   <a
                     href={item.href}
                     className={classNames(
-                      item.current
-                        ? "bg-gray-800 text-white"
-                        : "text-gray-400 hover:bg-gray-800 hover:text-white",
-                      "group flex gap-x-3 rounded-md p-3 text-sm/6 font-semibold"
+                      item.current ? "bg-gray-50" : "hover:bg-gray-50",
+                      "group flex w-full items-center p-2 rounded-md lg:text-base text-sm font-semibold text-gray-700",
+                      open ? "justify-start gap-x-3" : "justify-center",
+                      "transition transform hover:scale-[1.03] hover:translate-x-1"
                     )}
                   >
-                    <item.icon aria-hidden="true" className="size-6 shrink-0" />
-                    <span className="sr-only">{item.name}</span>
+                    <item.icon
+                      className="size-6 shrink-0 text-gray-400 group-hover:text-red-800 group-hover:drop-shadow-md transition duration-200"
+                      aria-hidden="true"
+                    />
+                    {open && (
+                      <span className="ml-1 whitespace-nowrap">
+                        {item.name}
+                      </span>
+                    )}
                   </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
+                ) : (
+                  <div>
+                    <button
+                      onClick={() =>
+                        setOpenSection(
+                          openSection === item.name ? null : item.name
+                        )
+                      }
+                      disabled={!open}
+                      className={classNames(
+                        item.current ? "bg-gray-50" : "hover:bg-gray-50",
+                        "group flex w-full rounded-md lg:text-base p-2 text-sm font-semibold text-gray-700 my-2",
+                        open ? "justify-start gap-x-3" : "justify-center",
+                        "transition transform hover:scale-[1.03] hover:translate-x-1"
+                      )}
+                    >
+                      <item.icon
+                        className="size-6 shrink-0 text-gray-400 group-hover:text-red-800 group-hover:drop-shadow-md transition duration-200"
+                        aria-hidden="true"
+                      />
+                      {open && (
+                        <span className="ml-1 whitespace-nowrap">
+                          {item.name}
+                        </span>
+                      )}
+                      {open && (
+                        <ChevronRightIcon
+                          className={classNames(
+                            "ml-auto size-5 shrink-0 text-gray-400",
+                            openSection === item.name &&
+                              "rotate-90 text-gray-500"
+                          )}
+                          aria-hidden="true"
+                        />
+                      )}
+                    </button>
 
-        <div className="sticky top-0 z-40 flex items-center gap-x-6 bg-gray-900 px-4 py-4 shadow-xs sm:px-6 lg:hidden">
-          <button
-            type="button"
-            onClick={() => setSidebarOpen(true)}
-            className="-m-2.5 p-2.5 text-gray-400 lg:hidden"
-          >
-            <span className="sr-only">Open sidebar</span>
-            <Bars3Icon aria-hidden="true" className="size-6" />
-          </button>
-          <div className="flex-1 text-sm/6 font-semibold text-white">
-            Dashboard
-          </div>
-          <a href="#">
-            <span className="sr-only">Your profile</span>
-            <img
-              alt=""
-              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-              className="size-8 rounded-full bg-gray-800"
-            />
-          </a>
-        </div>
-
-        <main className="lg:pl-20">
-          <div className="xl:pl-96">
-            <div className="px-4 py-10 sm:px-6 lg:px-8 lg:py-6">
-              {/* Main area */}
-            </div>
-          </div>
-        </main>
-
-        <aside className="fixed inset-y-0 left-20 hidden w-96 overflow-y-auto border-r border-gray-200 px-4 py-6 sm:px-6 lg:px-8 xl:block">
-          {/* Secondary column (hidden on smaller screens) */}
-        </aside>
+                    {open && openSection === item.name && (
+                      <ul className="mt-1 px-2">
+                        {item.children.map((subItem) => (
+                          <li key={subItem.name}>
+                            <a
+                              href={subItem.href}
+                              className={classNames(
+                                subItem.current
+                                  ? "bg-gray-50"
+                                  : "hover:bg-gray-50",
+                                "block rounded-md py-2 pl-9 pr-2 text-sm text-gray-700 transition transform hover:scale-[1.02] hover:translate-x-1"
+                              )}
+                            >
+                              {subItem.name}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
-    </>
+    </div>
   );
 }
