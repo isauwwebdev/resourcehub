@@ -15,6 +15,7 @@ function classNames(...classes) {
 export default function Home() {
   const apiKey = process.env.GOOGLE_MAPS_API_KEY;
   const [open, setOpen] = useState(true);
+  const [selectedIndex, setSelectedIndex] = useState(null);
 
   return (
     <APIProvider apiKey={apiKey}>
