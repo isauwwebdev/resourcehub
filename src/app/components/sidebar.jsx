@@ -1,12 +1,14 @@
 "use client";
+
 import { useState } from "react";
 import {
-  Disclosure,
-  DisclosureButton,
-  DisclosurePanel,
+  Dialog,
+  DialogBackdrop,
+  DialogPanel,
+  TransitionChild,
 } from "@headlessui/react";
-import { ChevronRightIcon } from "@heroicons/react/20/solid";
 import {
+  Bars3Icon,
   CalendarIcon,
   ChartPieIcon,
   DocumentDuplicateIcon,
@@ -20,7 +22,6 @@ import {
   TicketIcon,
   ChatBubbleLeftEllipsisIcon,
 } from "@heroicons/react/24/outline";
-import { Festive } from "next/font/google";
 
 const navigation = [
   {
@@ -100,6 +101,7 @@ const navigation = [
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
+
 
 export default function Sidebar({ open, setOpen }) {
   const [openSection, setOpenSection] = useState(null);

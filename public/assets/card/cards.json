@@ -1,16 +1,44 @@
-{
-{
-    imageSrc: "/cardimage1.png",
-    iconSrc: "/cardIcon(1).png",
-    location: "UNIVERSITY DISTRICT",
-    title: "Settling In",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+[
+  {
+    "imageSrc": "/cardimage1.png",
+    "iconSrc": "/cardIcon(1).png",
+    "location": "UNIVERSITY DISTRICT",
+    "title": "Settling In",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   },
   {
-   imageSrc: "/cardimage(2).png",
-   iconSrc: "/cardIcon(2).png",
-   location: "NORTHGATE",
-   title: "Essential Documents and Preparations",
-   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
- }
-}
+    "imageSrc": "/cardimage(2).png",
+    "iconSrc": "/cardIcon(2).png",
+    "location": "NORTHGATE",
+    "title": "Essential Documents and Preparations",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    "imageSrc": "/cardimage(2).png",
+    "iconSrc": "/cardIcon(3).png",
+    "location": "RAVENNA",
+    "title": "Campus Orientation and Study Essentials",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    "imageSrc": "/cardimage(2).png",
+    "iconSrc": "/cardIcon(4).png",
+    "location": "DOWNTOWN SEATTLE",
+    "title": "Social and Academic Integration",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    "imageSrc": "/cardimage(2).png",
+    "iconSrc": "/cardIcon(5).png",
+    "location": "SOUTH SEATTLE",
+    "title": "Part-Time Work and Academic Credits",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    "imageSrc": "/cardimage(2).png",
+    "iconSrc": "/cardIcon(6).png",
+    "location": "BELLEVUE",
+    "title": "Lifestyle and Adjustments",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  }
+]
