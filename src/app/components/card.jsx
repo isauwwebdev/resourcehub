@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 export default function Card({
   imageSrc,
@@ -9,33 +11,25 @@ export default function Card({
   description,
   onPrev,
   onNext,
+  startAnimation, // Accept startAnimation prop
+  animation,
 }) {
+
+  const [resetKey, setResetKey] = useState(0);
+  useEffect(() => {
+    setResetKey((prevKey) => prevKey + 1);
+  }, [animation]); 
+
   return (
-    <div className="max-w-lg mx-auto bg-white shadow-lg overflow-hidden">
-      <div className="relative w-full h-77">
-        <Image src={imageSrc} alt={title} layout="fill" objectFit="cover" />
+    <div className={`max-w-lg mx-auto bg-white shadow-lg overflow-hidden`}>
+      <div className="relative w-full h-77 ">
+        <Image src={imageSrc} alt={title} fill style={{ objectFit: "cover" }}/>
       </div>
       <div className="p-13 -mt-6 mb-8">
         <div className="flex mb-2 justify-end">
-          <button onClick={onPrev} className=" text-gray-600 hover:text-black">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M15.75 19.5 8.25 12l7.5-7.5"
-              />
-            </svg>
-          </button>
-          <button
-            onClick={() => {
-              onNext, startAnimation;
+          <button onClick={() => {
+              startAnimation(); // Start animation
+              onPrev(); // Go to the next card
             }}
             className="text-gray-600 hover:text-black z-10"
           >
@@ -43,28 +37,41 @@ export default function Card({
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
-              class="size-5"
+              className="size-5"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15.75 19.5 8.25 12l7.5-7.5"
+              />
+            </svg>
+          </button>
+          <button
+             onClick={() => {
+              startAnimation(); // Start animation
+              onNext(); // Go to the next card
+            }}
+            className="text-gray-600 hover:text-black z-10"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="size-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 d="m8.25 4.5 7.5 7.5-7.5 7.5"
               />
             </svg>
           </button>
         </div>
         {/* card start here */}
-        <div className="flex">
-          <div className="flex items-center justify-center w-[150px] h-[150px]">
-            <Image
-              src="/train_frame.png"
-              alt="train frame"
-              width={150}
-              height={150}
-            />
-          </div>
           <div>
             <div className="relative w-11 h-11 mb-8 ">
               <Image src={iconSrc} alt="Icon" layout="fill" objectFit="cover" />
@@ -82,7 +89,22 @@ export default function Card({
               Visit
             </button>
           </div>
-        </div>
+      {/* Train animation */}
+      <div className="flex items-center justify-center mt-8">
+        <motion.div
+              key={resetKey}
+              initial={{ x: "-220%" }}
+              animate={{ x: animation ? "-200%" : "250%" }}
+              transition={{ duration: 1.7}}
+            >
+        <Image
+              src="/train_frame.png"
+              alt="train frame"
+              width={200}
+              height={200}
+        />
+        </motion.div>
+      </div>
       </div>
     </div>
   );
