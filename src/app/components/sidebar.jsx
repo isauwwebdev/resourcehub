@@ -21,6 +21,7 @@ import {
   BuildingOfficeIcon,
   TicketIcon,
   ChatBubbleLeftEllipsisIcon,
+  ChevronRightIcon,
 } from "@heroicons/react/24/outline";
 
 const navigation = [
@@ -101,7 +102,6 @@ const navigation = [
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
-
 
 export default function Sidebar({ open, setOpen }) {
   const [openSection, setOpenSection] = useState(null);
