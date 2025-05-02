@@ -90,19 +90,26 @@ export default function MapWithMarkers({ onMarkerClick }) {
         <AdvancedMarker
           key={index}
           position={{ lat: marker.lat, lng: marker.lng }}
-          onClick={() => onMarkerClick(index)}
         >
-          <Pin
-            background="#fff"
-            borderColor="#000"
-            glyphColor="#000"
-            scale={1.5}
+          <div
+            onClick={() => onMarkerClick(index)} // moved here
+            style={{
+              ...labelStyle,
+              cursor: "pointer",
+              transition: "background 0.2s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "rgba(0, 0, 0, 0.35)";
+              e.currentTarget.style.color = "#fff";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "rgba(255, 255, 255, 0.25)";
+              e.currentTarget.style.color = "#000";
+            }}
           >
-            <div style={labelStyle}>
-              <MapPinIcon {...iconProps} />
-              <div>{marker.label}</div>
-            </div>
-          </Pin>
+            <MapPinIcon {...iconProps} />
+            <div>{marker.label}</div>
+          </div>
         </AdvancedMarker>
       ))}
     </Map>

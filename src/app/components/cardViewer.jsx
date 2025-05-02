@@ -4,48 +4,48 @@ import Card from "../components/card";
 
 const cards = [
   {
-    imageSrc: "/cardimage1.png",
-    iconSrc: "/cardIcon(1).png",
+    imageSrc: "/assets/card/cardimage1.png",
+    iconSrc: "/assets/card/cardIcon(1).png",
     location: "UNIVERSITY DISTRICT",
     title: "Settling In",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
-    imageSrc: "/cardimage(2).png",
-    iconSrc: "/cardIcon(2).png",
+    imageSrc: "/assets/card/cardimage(2).png",
+    iconSrc: "/assets/card/cardIcon(2).png",
     location: "NORTHGATE",
     title: "Essential Documents and Preparations",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
-    imageSrc: "/cardimage1.png",
-    iconSrc: "/cardIcon(3).png",
+    imageSrc: "/assets/card/cardimage1.png",
+    iconSrc: "/assets/card/cardIcon(3).png",
     location: "RAVENNA",
     title: "Campus Orientation and Study Essentials",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
-    imageSrc: "/cardimage(2).png",
-    iconSrc: "/cardIcon(4).png",
+    imageSrc: "/assets/card/cardimage(2).png",
+    iconSrc: "/assets/card/cardIcon(4).png",
     location: "DOWNTOWN SEATTLE",
     title: "Social and Academic Integration",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
-    imageSrc: "/cardimage1.png",
-    iconSrc: "/cardIcon(5).png",
+    imageSrc: "/assets/card/cardimage1.png",
+    iconSrc: "/assets/card/cardIcon(5).png",
     location: "SOUTH SEATTLE",
     title: "Part-Time Work and Academic Credits",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
-    imageSrc: "/cardimage(2).png",
-    iconSrc: "/cardIcon(6).png",
+    imageSrc: "/assets/card/cardimage(2).png",
+    iconSrc: "/assets/card/cardIcon(6).png",
     location: "BELLEVUE",
     title: "Lifestyle and Adjustments",
     description:
@@ -53,9 +53,14 @@ const cards = [
   },
 ];
 
-export default function CardViewer() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [animation, setAnimation] = useState(false); // Track animation state
+export default function CardViewer({ selectedIndex = 0, onClose }) {
+  const [currentIndex, setCurrentIndex] = useState(selectedIndex);
+  const [animation, setAnimation] = useState(false);
+
+  // Sync card with new marker click
+  useEffect(() => {
+    setCurrentIndex(selectedIndex);
+  }, [selectedIndex]);
 
   const handlePrev = () => {
     setAnimation(true);
@@ -67,19 +72,30 @@ export default function CardViewer() {
     setCurrentIndex((prev) => (prev === cards.length - 1 ? 0 : prev + 1));
   };
 
-  // Start animation when moving to the next card
   const startAnimation = () => {
-    setAnimation(true); // Trigger the animation
-    setTimeout(() => setAnimation(false), 15); // Reset animation after 1s
+    setAnimation(true);
+    setTimeout(() => setAnimation(false), 15);
   };
 
   return (
-    <Card
-      {...cards[currentIndex]}
-      onPrev={handlePrev}
-      onNext={handleNext}
-      startAnimation={startAnimation}
-      animation={animation}
-    />
+    <div className="h-full flex flex-col">
+      <button
+        className="self-end m-4 text-xl"
+        onClick={onClose}
+        aria-label="Close"
+      >
+        ✕
+      </button>
+
+      <div className="flex-1 overflow-y-auto">
+        <Card
+          {...cards[currentIndex]}
+          onPrev={handlePrev}
+          onNext={handleNext}
+          startAnimation={startAnimation}
+          animation={animation}
+        />
+      </div>
+    </div>
   );
 }

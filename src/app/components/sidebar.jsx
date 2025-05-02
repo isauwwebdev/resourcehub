@@ -2,19 +2,7 @@
 
 import { useState } from "react";
 import {
-  Dialog,
-  DialogBackdrop,
-  DialogPanel,
-  TransitionChild,
-} from "@headlessui/react";
-import {
-  Bars3Icon,
-  CalendarIcon,
-  ChartPieIcon,
-  DocumentDuplicateIcon,
-  FolderIcon,
   HomeIcon,
-  UsersIcon,
   DocumentIcon,
   AcademicCapIcon,
   UserPlusIcon,
@@ -30,10 +18,19 @@ const navigation = [
     icon: DocumentIcon,
     current: false,
     children: [
-      { name: "Visa & Documentation", href: "#" },
-      { name: "Housing Arrangement", href: "#" },
-      { name: "Health and Insurance", href: "#" },
-      { name: "Packing Guide", href: "#" },
+      {
+        name: "Visa & Documentation",
+        href: "essentialDocuments/#visa_documentation",
+      },
+      {
+        name: "Housing Arrangement",
+        href: "essentialDocuments/#housing_arrangement",
+      },
+      {
+        name: "Health and Insurance",
+        href: "essentialDocuments/#health_insurance",
+      },
+      { name: "Packing Guide", href: "essentialDocuments/#packing_guide" },
     ],
   },
   {
@@ -41,10 +38,13 @@ const navigation = [
     icon: HomeIcon,
     current: false,
     children: [
-      { name: "Phone & Connectivity", href: "#" },
-      { name: "Banking & Finances", href: "#" },
-      { name: "Transportation Options", href: "#" },
-      { name: "Everyday Essentials", href: "#" },
+      { name: "Phone & Connectivity", href: "settling/#phone_connectivity" },
+      { name: "Banking & Finances", href: "settling/#banking_finances" },
+      {
+        name: "Transportation Options",
+        href: "settling/#transporation_options",
+      },
+      { name: "Everyday Essentials", href: "settling/#everyday_essentials" },
     ],
   },
   {
@@ -52,12 +52,21 @@ const navigation = [
     icon: AcademicCapIcon,
     current: false,
     children: [
-      { name: "Orientation & Onboarding", href: "#" },
-      { name: "Campus Access", href: "#" },
-      { name: "University Tools & Academic Success", href: "#" },
-      { name: "Transfer Credits", href: "#" },
-      { name: "Best Study Spots", href: "#" },
-      { name: "Course Materials & Textbook", href: "#" },
+      {
+        name: "Orientation & Onboarding",
+        href: "campusstudy/#orientation_onboarding",
+      },
+      { name: "Campus Access", href: "campusstudy/#campus_access" },
+      {
+        name: "University Tools & Academic Success",
+        href: "campusstudy/#university_tools",
+      },
+      { name: "Transfer Credits", href: "campusstudy/#transfer_credits" },
+      { name: "Best Study Spots", href: "campusstudy/#study_spots" },
+      {
+        name: "Course Materials & Textbook",
+        href: "campusstudy/#course_materials",
+      },
     ],
   },
   {
@@ -65,19 +74,22 @@ const navigation = [
     icon: UserPlusIcon,
     current: false,
     children: [
-      { name: "Student Organization & Clubs", href: "#" },
-      { name: "Religious and Spiritual Resources", href: "#" },
-      { name: "Events & Entertainment", href: "#" },
+      {
+        name: "Student Organization & Clubs",
+        href: "/social/#organization_clubs",
+      },
+      { name: "Religious and Spiritual Resources", href: "/social/#religious" },
+      { name: "Events & Entertainment", href: "/social/#event_entertainment" },
     ],
   },
   {
-    name: "Job and Internship Opportunities",
+    name: "Work Opportunities",
     icon: BuildingOfficeIcon,
     current: false,
     children: [
-      { name: "On-campus Job", href: "#" },
-      { name: "Curricular Practical Training (CPT)", href: "#" },
-      { name: "Optional Practical Training (OPT)", href: "#" },
+      { name: "On-campus Job", href: "work/#on_campus" },
+      { name: "Curricular Practical Training (CPT)", href: "work/#cpt" },
+      { name: "Optional Practical Training (OPT)", href: "work/#opt" },
     ],
   },
   {
@@ -85,17 +97,17 @@ const navigation = [
     icon: TicketIcon,
     current: false,
     children: [
-      { name: "Cultural Adjustment", href: "#" },
-      { name: "Shopping Options", href: "#" },
-      { name: "Restaurant Options", href: "#" },
-      { name: "Weather Gear", href: "#" },
+      { name: "Cultural Adjustment", href: "lifestyle/#cultural_adjustment" },
+      { name: "Shopping Options", href: "lifestyle/#shopping_options" },
+      { name: "Restaurant Options", href: "lifestyle/#restaurant_options" },
+      { name: "Weather Gear", href: "lifestyle/#weather_gear" },
     ],
   },
   {
     name: "Sign Up for ISAUW",
     icon: ChatBubbleLeftEllipsisIcon,
     current: false,
-    href: "#",
+    href: "joinIsauw",
   },
 ];
 
@@ -122,6 +134,9 @@ export default function Sidebar({ open, setOpen }) {
               <li key={item.name}>
                 {!item.children ? (
                   <a
+                    onClick={() => {
+                      setOpen(true); // always open the sidebar
+                    }}
                     href={item.href}
                     className={classNames(
                       item.current ? "bg-gray-50" : "hover:bg-gray-50",
@@ -141,14 +156,20 @@ export default function Sidebar({ open, setOpen }) {
                     )}
                   </a>
                 ) : (
-                  <div>
+                  <div
+                    onClick={() => {
+                      if (!open) {
+                        setOpen(true); // always open the sidebar
+                        setOpenSection(item.name); // always expand the section
+                      }
+                    }}
+                  >
                     <button
-                      onClick={() =>
+                      onClick={() => {
                         setOpenSection(
                           openSection === item.name ? null : item.name
-                        )
-                      }
-                      disabled={!open}
+                        );
+                      }}
                       className={classNames(
                         item.current ? "bg-gray-50" : "hover:bg-gray-50",
                         "group flex w-full rounded-md lg:text-base p-2 text-sm font-semibold text-gray-700 my-2",

@@ -4,8 +4,6 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 export default function hamburgerIcon({ open, setOpen }) {
-  const [openSection, setOpenSection] = useState(null);
-
   return (
     <div
       className={classNames(
