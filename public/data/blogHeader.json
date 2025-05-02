@@ -1,0 +1,32 @@
+{
+    "essentialDocuments" : {
+        "title": "Essential Documents",
+        "imageSrc": "blue",
+        "location" : "University District",
+        "content" : ""
+    },
+    "checklistSummary" : {
+        "title" : "Checklist Summary",
+        "imageSrc" : "white",
+        "location" : "",
+        "content" : ""
+    },
+    "campusstudy" : {
+        "title" : "Campus Study",
+        "imageSrc" : "white",
+        "location" : "",
+        "content" : ""
+    },
+    "social" : {
+        "title" : "Social",
+        "imageSrc" : "purple",
+        "location" : "",
+        "content" : ""
+    },
+    "settling" : {
+        "title" : "Settling In",
+        "imageSrc" : "green",
+        "location" : "",
+        "content" : ""
+    }
+}
