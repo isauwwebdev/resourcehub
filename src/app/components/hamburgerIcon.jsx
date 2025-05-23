@@ -7,7 +7,7 @@ export default function hamburgerIcon({ open, setOpen }) {
   return (
     <div
       className={classNames(
-        "z-50 fixed top-4 h-screen transition-all duration-300",
+        "z-80 fixed top-4 h-screen transition-all duration-300",
         open ? "left-4" : "lg:left-6 md:left-3.5 left-6"
       )}
     >
