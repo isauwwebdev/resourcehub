@@ -28,5 +28,11 @@
         "imageSrc" : "green",
         "location" : "",
         "content" : ""
+    },
+    "campusStudy" : {
+        "title" : "Part-Time Work and Academic Credits",
+        "imageSrc" : "purple",
+        "location" : "South Seattle",
+        "content" : ""
     }
 }

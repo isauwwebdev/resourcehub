@@ -54,18 +54,18 @@ const navigation = [
     children: [
       {
         name: "Orientation & Onboarding",
-        href: "campusstudy/#orientation_onboarding",
+        href: "campusStudy/#orientation_onboarding",
       },
-      { name: "Campus Access", href: "campusstudy/#campus_access" },
+      { name: "Campus Access", href: "campusStudy/#campus_access" },
       {
         name: "University Tools & Academic Success",
-        href: "campusstudy/#university_tools",
+        href: "campusStudy/#university_tools",
       },
-      { name: "Transfer Credits", href: "campusstudy/#transfer_credits" },
-      { name: "Best Study Spots", href: "campusstudy/#study_spots" },
+      { name: "Transfer Credits", href: "campusStudy/#transfer_credits" },
+      { name: "Best Study Spots", href: "campusStudy/#study_spots" },
       {
         name: "Course Materials & Textbook",
-        href: "campusstudy/#course_materials",
+        href: "campusStudy/#course_materials",
       },
     ],
   },
@@ -107,7 +107,7 @@ const navigation = [
     name: "Sign Up for ISAUW",
     icon: ChatBubbleLeftEllipsisIcon,
     current: false,
-    href: "joinIsauw",
+    href: "joinISAUW",
   },
 ];
 
