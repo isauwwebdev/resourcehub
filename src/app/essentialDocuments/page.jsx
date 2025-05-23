@@ -30,116 +30,81 @@ export default function Page() {
 
   return (
     <div className="bg-white min-h-screen py-10 px-6 md:px-12 lg:px-32 xl:px-48">
-      {/* Breadcrumb */}
       <Breadcrumb />
 
-      {/* Header Card */}
       <div className="mt-8 mb-10 bg-gradient-to-r from-indigo-900 to-purple-700 text-white rounded-lg p-6 text-center">
         <h1 className="text-lg tracking-widest font-semibold uppercase">
-          {headerData.location || "LOCATION NAME"}
+          {headerData.location || "Campus Orientation"}
         </h1>
         <h2 className="text-3xl md:text-4xl font-bold mt-2">
-          {headerData.title || "Blog Title Placeholder"}
+          {headerData.title || "Campus Orientation and Study Essentials"}
         </h2>
       </div>
 
       <div className="flex flex-col lg:flex-row gap-10">
-        {/* Main Content */}
         <main className="flex-1 prose prose-lg max-w-none">
-          <div id="visa_documentation" className="pb-10 mb-10">
-            <h3 className="text-lg font-bold">Visa Documentation</h3>
+          <section id="orientation_onboarding" className="pb-10 mb-10">
+            <h3 className="text-lg font-bold">Orientation & Onboarding</h3>
             <p>
-              Safeway UW, the unofficial hub of late-night survival and
-              caffeinated desperation, is more than just a grocery store — it's
-              a rite of passage for every poor student bold enough to venture
-              into its fluorescent-lit aisles... Safeway UW, the unofficial hub
-              of late-night survival and caffeinated desperation, is more than
-              just a grocery store — it's a rite of passage for every poor
-              student bold enough to venture into its fluorescent-lit aisles...
-              Safeway UW, the unofficial hub of late-night survival and
-              caffeinated desperation, is more than just a grocery store — it's
-              a rite of passage for every poor student bold enough to venture
-              into its fluorescent-lit aisles... Safeway UW, the unofficial hub
-              of late-night survival and caffeinated desperation, is more than
-              just a grocery store — it's a rite of passage for every poor
-              student bold enough to venture into its fluorescent-lit aisles...
-              Safeway UW, the unofficial hub of late-night survival and
-              caffeinated desperation, is more than just a grocery store — it's
-              a rite of passage for every poor student bold enough to venture
-              into its fluorescent-lit aisles... Safeway UW, the unofficial hub
-              of late-night survival and caffeinated desperation, is more than
-              just a grocery store — it's a rite of passage for every poor
-              student bold enough to venture into its fluorescent-lit aisles...
+              Start strong at UW by attending Advising & Orientation (A&O),
+              joining iSchool welcome sessions, and connecting with peer
+              mentors. You'll get support with registering for classes, setting
+              up your NetID and MyUW account, and navigating platforms like
+              Canvas and MyPlan.
             </p>
-            <p>
-              Safeway UW, the unofficial hub of late-night survival and
-              caffeinated desperation, is more than just a grocery store — it's
-              a rite of passage for every poor student bold enough to venture
-              into its fluorescent-lit aisles...
-            </p>
-            <p>
-              Safeway UW, the unofficial hub of late-night survival and
-              caffeinated desperation, is more than just a grocery store — it's
-              a rite of passage for every poor student bold enough to venture
-              into its fluorescent-lit aisles...
-            </p>
-          </div>
+          </section>
 
-          <div id="housing_arrangement" className="pb-10 mb-10">
-            <h3 className="text-lg font-bold">Housing Arrangement</h3>
+          <section id="campus_access" className="pb-10 mb-10">
+            <h3 className="text-lg font-bold">Campus Access</h3>
             <p>
-              Safeway UW, the unofficial hub of late-night survival and
-              caffeinated desperation, is more than just a grocery store — it's
-              a rite of passage for every poor student bold enough to venture
-              into its fluorescent-lit aisles...
+              Your Husky Card grants access to libraries, residence halls,
+              academic buildings, and U-PASS transportation. Don't forget it —
+              it's your ID, meal pass, and your key into UW's secured spaces.
             </p>
+          </section>
+
+          <section id="academic_tools" className="pb-10 mb-10">
+            <h3 className="text-lg font-bold">
+              University Tools & Academic Success
+            </h3>
             <p>
-              Google encourages high-quality blogs regardless of whether they’re
-              written by humans or created using artificial intelligence like
-              ChatGPT...
+              Use Canvas for course content, MyPlan for academic planning, and
+              Panopto for recorded lectures. Leverage support services like CLUE
+              tutoring, iSchool peer advising, and academic coaching from the
+              Office of Minority Affairs.
             </p>
+          </section>
+
+          <section id="transfer_credits" className="pb-10 mb-10">
+            <h3 className="text-lg font-bold">Transfer Credits</h3>
             <p>
-              Safeway UW, the unofficial hub of late-night survival and
-              caffeinated desperation, is more than just a grocery store — it's
-              a rite of passage for every poor student bold enough to venture
-              into its fluorescent-lit aisles...
+              Bringing in AP, IB, or community college credits? Submit
+              transcripts early, check your Degree Audit (DARS), and confirm
+              with your advisor how they apply to your major or general
+              education requirements.
             </p>
+          </section>
+
+          <section id="study_spots" className="pb-10 mb-10">
+            <h3 className="text-lg font-bold">Best Study Spots</h3>
             <p>
-              Safeway UW, the unofficial hub of late-night survival and
-              caffeinated desperation, is more than just a grocery store — it's
-              a rite of passage for every poor student bold enough to venture
-              into its fluorescent-lit aisles...
+              Find your ideal study zone—whether it's the grand Suzzallo Reading
+              Room, 24/7 Odegaard Library, iSchool lounge, or hidden gems like
+              Denny Hall nooks and HUB's quiet corners.
             </p>
-          </div>
-          <div id="health_insurance" className="pb-10 mb-10">
-            <h3 className="text-lg font-bold">Health Insurance</h3>
+          </section>
+
+          <section id="course_materials" className="pb-10 mb-10">
+            <h3 className="text-lg font-bold">Course Materials & Textbook</h3>
             <p>
-              Safeway UW, the unofficial hub of late-night survival and
-              caffeinated desperation, is more than just a grocery store — it's
-              a rite of passage for every poor student bold enough to venture
-              into its fluorescent-lit aisles...
+              Get textbooks through the UW Bookstore, but always check Canvas
+              and Leganto first for free PDFs or open-access links. Suzzallo
+              Library may have course reserves, and you can often find used
+              books via Reddit or Facebook groups.
             </p>
-            <p>
-              Google encourages high-quality blogs regardless of whether they’re
-              written by humans or created using artificial intelligence like
-              ChatGPT...
-            </p>
-            <p>
-              Safeway UW, the unofficial hub of late-night survival and
-              caffeinated desperation, is more than just a grocery store — it's
-              a rite of passage for every poor student bold enough to venture
-              into its fluorescent-lit aisles...
-            </p>
-            <p>
-              Safeway UW, the unofficial hub of late-night survival and
-              caffeinated desperation, is more than just a grocery store — it's
-              a rite of passage for every poor student bold enough to venture
-              into its fluorescent-lit aisles...
-            </p>
-          </div>
+          </section>
         </main>
 
-        {/* Sidebar */}
         <aside className="w-full lg:w-80 space-y-6">
           <div className="bg-purple-100 rounded-lg p-4 text-center">
             <Image
@@ -155,15 +120,32 @@ export default function Page() {
               SWE
             </p>
           </div>
+
           <div className="bg-white border rounded-lg p-4">
             <h5 className="text-sm font-semibold mb-2 text-gray-800">
               In this article
             </h5>
             <ul className="list-disc pl-5 space-y-1 text-sm text-gray-600">
-              <li>Safeway UDistrict</li>
-              <li>AI Writing Pitfalls</li>
-              <li>ChatGPT Style</li>
-              <li>AI Transparency</li>
+              <li>
+                <a href="#orientation_onboarding">Orientation & Onboarding</a>
+              </li>
+              <li>
+                <a href="#campus_access">Campus Access</a>
+              </li>
+              <li>
+                <a href="#academic_tools">
+                  University Tools & Academic Success
+                </a>
+              </li>
+              <li>
+                <a href="#transfer_credits">Transfer Credits</a>
+              </li>
+              <li>
+                <a href="#study_spots">Best Study Spots</a>
+              </li>
+              <li>
+                <a href="#course_materials">Course Materials & Textbook</a>
+              </li>
             </ul>
           </div>
 

@@ -54,7 +54,7 @@ const navigation = [
     children: [
       {
         name: "Orientation & Onboarding",
-        href: "campusstudy/#orientation_onboarding",
+        href: "campus-study/#orientation_onboarding",
       },
       { name: "Campus Access", href: "campusstudy/#campus_access" },
       {
