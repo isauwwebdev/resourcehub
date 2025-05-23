@@ -10,6 +10,7 @@ const cards = [
     title: "Settling In",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    link: "/settlingIn",
   },
   {
     imageSrc: "/assets/card/cardimage(2).png",
@@ -18,6 +19,7 @@ const cards = [
     title: "Essential Documents and Preparations",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    link: "/essentialDocuments",
   },
   {
     imageSrc: "/assets/card/cardimage1.png",
@@ -26,6 +28,7 @@ const cards = [
     title: "Campus Orientation and Study Essentials",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    link: "/studyEssentials",
   },
   {
     imageSrc: "/assets/card/cardimage(2).png",
@@ -34,6 +37,7 @@ const cards = [
     title: "Social and Academic Integration",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    link: "/socialAcademicIntegration",
   },
   {
     imageSrc: "/assets/card/cardimage1.png",
@@ -42,6 +46,7 @@ const cards = [
     title: "Part-Time Work and Academic Credits",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    link: "/work",
   },
   {
     imageSrc: "/assets/card/cardimage(2).png",
@@ -50,6 +55,7 @@ const cards = [
     title: "Lifestyle and Adjustments",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    link: "/lifestyle",
   },
 ];
 

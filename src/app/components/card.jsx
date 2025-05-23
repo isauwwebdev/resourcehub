@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function Card({
   imageSrc,
@@ -14,6 +15,7 @@ export default function Card({
   onNext,
   startAnimation, // Accept startAnimation prop
   animation,
+  link,
 }) {
 
   const [resetKey, setResetKey] = useState(0);
@@ -86,9 +88,11 @@ export default function Card({
             <p className="font-poppins font-normal text-[18px] leading-[100%] tracking-tight text-gray-600 mb-16">
               {description}
             </p>
-            <button className="px-18 py-2 bg-red-800 text-white text-lg font-semibold rounded-lg hover:bg-red-600 focus:outline-none">
-              Visit
-            </button>
+            <Link href={link} passHref>
+              <button className="px-18 py-2 bg-red-800 text-white text-lg font-semibold rounded-lg hover:bg-red-600 focus:outline-none">
+                Visit
+              </button>
+            </Link>
           </div>
       {/* Train animation */}
       <div className="flex items-center justify-center mt-8">
