@@ -13,12 +13,14 @@ const labelStyle = {
   borderRadius: "12px",
   backdropFilter: "blur(12px)",
   background:
-    "linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7))",
-  border: "2px solid rgba(255, 255, 255, 0.8)",
+    "linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9), rgba(241, 245, 249, 0.85))",
+  border: "2px solid rgba(255, 255, 255, 0.9)",
   boxShadow: `
-    0 8px 32px rgba(0, 0, 0, 0.12),
+    0 12px 40px rgba(0, 0, 0, 0.15),
+    0 4px 16px rgba(0, 0, 0, 0.1),
     0 2px 8px rgba(0, 0, 0, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9)
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.05)
   `,
   color: "#1f2937",
   display: "flex",
@@ -28,9 +30,13 @@ const labelStyle = {
   gap: "8px",
   flexDirection: "row",
   position: "relative",
-  zIndex: 10,
+  zIndex: 15,
   transform: "translateZ(0)",
   transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+  borderTop: "1px solid rgba(255, 255, 255, 0.8)",
+  borderLeft: "1px solid rgba(255, 255, 255, 0.6)",
+  borderRight: "1px solid rgba(0, 0, 0, 0.1)",
+  borderBottom: "1px solid rgba(0, 0, 0, 0.15)",
 };
 
 const iconProps = {
