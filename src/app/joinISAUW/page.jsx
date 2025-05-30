@@ -45,7 +45,7 @@ export default function Sarcb() {
   return (
     <div className="p-6 bg-white">
       <Breadcrumb />
-      <div className="flex flex-row w-2/3 items-center justify-center p-6 bg-white mx-auto">
+      <div className="flex flex-col-reverse md:flex-row w-2/3 items-center justify-center p-6 bg-white mx-auto">
         <div className="w-full max-w-md pr-6 flex items-center min-h-[300px]">
           <form onSubmit={handleSubmit} className="space-y-4 w-full">
             {!fadeUWQuestion && (
@@ -215,7 +215,7 @@ export default function Sarcb() {
         </div>
 
         {/* Right side: Image */}
-        <div style={{ width: "450px" }} className="hidden md:flex justify-end">
+        <div className="flex justify-end md:w-md w-sm">
           <img
             src="/friendsGather.svg"
             alt="Friends Gather"
