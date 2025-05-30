@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import Breadcrumb from "../components/breadcrumb";
 import { H1Icon } from "@heroicons/react/24/outline";
+import { db } from "../firebase";
+import { collection, addDoc } from "firebase/firestore";
 
 export default function Sarcb() {
   const [formData, setFormData] = useState({
@@ -17,6 +19,10 @@ export default function Sarcb() {
   const [showFollowUp, setShowFollowUp] = useState(false);
   const [showStudentQuestion, setShowStudentQuestion] = useState(false);
   const [fadeUWQuestion, setFadeUWQuestion] = useState(false);
+
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
 
   const handleRadioClick = (e) => {
     const value = e.target.value;
@@ -37,9 +43,33 @@ export default function Sarcb() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    setLoading(true);
+    setError("");
+
+    try {
+      const docRef = await addDoc(collection(db, "joinRequests"), {
+        ...formData,
+        timestamp: new Date(),
+      });
+
+      setSuccess(true);
+      setFormData({
+        isUWstudent: "",
+        fullname: "",
+        phone: "",
+        email: "",
+        graduation: "",
+        role: "",
+        question: "",
+      });
+    } catch (err) {
+      setError("Failed to submit form. Please try again.");
+      console.error("Error adding document: ", err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
