@@ -42,7 +42,7 @@ const navigation = [
       { name: "Banking & Finances", href: "settling/#banking_finances" },
       {
         name: "Transportation Options",
-        href: "settling/#transporation_options",
+        href: "settling/#transportation_options",
       },
       { name: "Everyday Essentials", href: "settling/#everyday_essentials" },
     ],
@@ -54,18 +54,18 @@ const navigation = [
     children: [
       {
         name: "Orientation & Onboarding",
-        href: "campusstudy/#orientation_onboarding",
+        href: "campusStudy/#orientation_onboarding",
       },
-      { name: "Campus Access", href: "campusstudy/#campus_access" },
+      { name: "Campus Access", href: "campusStudy/#campus_access" },
       {
         name: "University Tools & Academic Success",
-        href: "campusstudy/#university_tools",
+        href: "campusStudy/#university_tools",
       },
-      { name: "Transfer Credits", href: "campusstudy/#transfer_credits" },
-      { name: "Best Study Spots", href: "campusstudy/#study_spots" },
+      { name: "Transfer Credits", href: "campusStudy/#transfer_credits" },
+      { name: "Best Study Spots", href: "campusStudy/#study_spots" },
       {
         name: "Course Materials & Textbook",
-        href: "campusstudy/#course_materials",
+        href: "campusStudy/#course_materials",
       },
     ],
   },
@@ -108,6 +108,7 @@ const navigation = [
     icon: ChatBubbleLeftEllipsisIcon,
     current: false,
     href: "join-isauw",
+
   },
 ];
 
@@ -123,10 +124,16 @@ export default function Sidebar({ open, setOpen }) {
       className={classNames(
         "transition-all duration-300 overflow-hidden bg-white border-r border-gray-200 ",
         open
-          ? "w-full md:w-sm lg:w-md" // open sidebar width
+          ? "w-full md:w-sm lg:w-md z-70" // open sidebar width
           : "w-0 md:w-16 lg:w-20" // hide on small, show collapsed on md+
       )}
     >
+      <style jsx>{`
+        .hoverable-icon:hover {
+          color: #7d0000; /* same as text-red-800 */
+          filter: drop-shadow(0 2px 2px rgba(125, 0, 0, 0.3));
+        }
+      `}</style>
       <div className="flex flex-col w-full h-screen item-center overflow-y-auto py-4">
         <nav className="mt-7 w-full">
           <ul role="list" className="space-y-1 px-2 mt-10">
@@ -145,10 +152,7 @@ export default function Sidebar({ open, setOpen }) {
                       "transition transform hover:scale-[1.03] hover:translate-x-1"
                     )}
                   >
-                    <item.icon
-                      className="size-6 shrink-0 text-gray-400 group-hover:text-red-800 group-hover:drop-shadow-md transition duration-200"
-                      aria-hidden="true"
-                    />
+                    <item.icon className="cursor-pointer pointer-events-auto size-6 shrink-0 text-gray-400 group-hover:text-red-800 group-hover:drop-shadow-md transition duration-200" />
                     {open && (
                       <span className="ml-1 whitespace-nowrap">
                         {item.name}
@@ -172,14 +176,16 @@ export default function Sidebar({ open, setOpen }) {
                       }}
                       className={classNames(
                         item.current ? "bg-gray-50" : "hover:bg-gray-50",
-                        "group flex w-full rounded-md lg:text-base p-2 text-sm font-semibold text-gray-700 my-2",
+                        "nav-item group flex w-full rounded-md lg:text-base p-2 text-sm font-semibold my-2 text-gray-700",
                         open ? "justify-start gap-x-3" : "justify-center",
                         "transition transform hover:scale-[1.03] hover:translate-x-1"
                       )}
                     >
                       <item.icon
-                        className="size-6 shrink-0 text-gray-400 group-hover:text-red-800 group-hover:drop-shadow-md transition duration-200"
-                        aria-hidden="true"
+                        className="w-6 h-6 text-gray-400 group-hover:text-red-800 cursor-pointer"
+                        style={{
+                          pointerEvents: "all",
+                        }}
                       />
                       {open && (
                         <span className="ml-1 whitespace-nowrap">

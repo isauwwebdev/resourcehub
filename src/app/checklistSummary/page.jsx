@@ -1,64 +1,68 @@
 "use client";
-import React from "react";
-import { usePathname } from "next/navigation";
+import React, { useState } from "react";
 import Breadcrumb from "../components/breadcrumb";
-import blogHeader from "../../../public/data/blogHeader.json";
-import Image from "next/image";
+import ChecklistItem from "../components/ChecklistItem";
 
-export default function Page() {
-  const titleName = usePathname().split("/").at(-1);
-  const headerData = blogHeader[titleName] || {};
+export default function ChecklistSummary() {
+  const [progress] = useState(36);
+  const [steps] = useState([
+    { id: 1, title: "Documents", completed: true },
+    { id: 2, title: "Housing", completed: true },
+    { id: 3, title: "Healthcare and Insurance", completed: false },
+    { id: 4, title: "Course Registration", completed: false },
+    { id: 5, title: "Student ID Card", completed: false }
+  ]);
 
   return (
-    <div className="bg-white min-h-screen py-10 px-6 md:px-12 lg:px-32 xl:px-48">
-      {/* Breadcrumb */}
-      <Breadcrumb />
+    <div className="p-6 bg-gray-50">
+    <Breadcrumb />
+    <div className="min-h-screen py-10 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto">
+        {/* Header */}
+        <div className="mb-8">
+          <h1 className="text-4xl font-bold text-gray-900 mb-2">RESOURCE BOARD</h1>
+          <p className="text-lg text-gray-600">Complete all the tasks below and unlock your journey!</p>
+        </div>
+        <div className="bg-white rounded-2xl border border-gray-200 p-10">
+     
 
-      {/* Header Card */}
-      <div className="mt-8 mb-10 bg-gradient-to-r from-indigo-900 to-purple-700 text-white rounded-lg p-6 text-center">
-        <h1 className="text-lg tracking-widest font-semibold uppercase">
-          {headerData.location || "LOCATION NAME"}
-        </h1>
-        <h2 className="text-3xl md:text-4xl font-bold mt-2">
-          {headerData.title || "Blog Title Placeholder"}
-        </h2>
-      </div>
-
-      <div className="flex flex-col lg:flex-row gap-10">
-        {/* Main Content */}
-        <main className="flex-1 prose prose-lg max-w-none">
-          <h3>Checklist</h3>
-        </main>
-
-        {/* Sidebar */}
-        <aside className="w-full lg:w-80 space-y-6">
-          <div className="bg-purple-100 rounded-lg p-4 text-center">
-            <Image
-              src="/assets/enrico.png"
-              alt="Author profile"
-              width={80}
-              height={80}
-              className="rounded-full mx-auto mb-2"
-            />
-            <h4 className="font-semibold text-purple-900">Enrico Pratama</h4>
-            <p className="text-sm text-gray-700">
-              AMAZON Intern, Teaching Assistant, CS Tutor, WebDev Lead, Google
-              SWE
-            </p>
+        {/* Progress Section */}
+        <div className="mb-6">
+          <div className="flex items-center mb-4">
+            <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mr-4">
+              <svg className="w-6 h-6 text-red-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+            </div>
+            <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content text-yellow sm:text-2xl">
+            <span
+              className="bg-gradient-to-r from-orange-300 to-white text-transparent 
+                          bg-clip-text font-semibold mx-auto"
+            >
+              Happening Now
+            </span>
           </div>
-          <div className="bg-white border rounded-lg p-4">
-            <h5 className="text-sm font-semibold mb-2 text-gray-800">
-              In this article
-            </h5>
-            <ul className="list-disc pl-5 space-y-1 text-sm text-gray-600">
-              <li>Safeway UDistrict</li>
-              <li>AI Writing Pitfalls</li>
-              <li>ChatGPT Style</li>
-              <li>AI Transparency</li>
-            </ul>
+            <span className="ml-auto text-2xl font-semibold text-gray-900">{progress}%</span>
           </div>
-        </aside>
+
+          {/* Progress Bar */}
+          <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+            <div 
+              className="h-full bg-red-800 rounded-full transition-all duration-500"
+              style={{ width: `${progress}%` }}
+            ></div>
+          </div>
+        </div>
+
+        {/* Checklist Items */}
+        <div className="space-y-4">
+          {steps.map((step) => (
+            <ChecklistItem key={step.id} step={step} />
+          ))}
+        </div>
       </div>
     </div>
+  </div>
+  </div>
   );
 }
