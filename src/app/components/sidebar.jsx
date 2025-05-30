@@ -107,7 +107,7 @@ const navigation = [
     name: "Sign Up for ISAUW",
     icon: ChatBubbleLeftEllipsisIcon,
     current: false,
-    href: "joinIsauw",
+    href: "joinISAUW",
   },
 ];
 
