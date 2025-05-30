@@ -42,7 +42,7 @@ const navigation = [
       { name: "Banking & Finances", href: "settling/#banking_finances" },
       {
         name: "Transportation Options",
-        href: "settling/#transporation_options",
+        href: "settling/#transportation_options",
       },
       { name: "Everyday Essentials", href: "settling/#everyday_essentials" },
     ],

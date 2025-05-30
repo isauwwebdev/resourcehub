@@ -1,14 +1,37 @@
 "use client";
 import React, { useState } from "react";
 import Breadcrumb from "../components/breadcrumb";
+import { H1Icon } from "@heroicons/react/24/outline";
 
 export default function Sarcb() {
   const [formData, setFormData] = useState({
+    isUWstudent: "",
     fullname: "",
     phone: "",
     email: "",
     graduation: "",
+    role: "",
+    question: "",
   });
+
+  const [showFollowUp, setShowFollowUp] = useState(false);
+  const [showStudentQuestion, setShowStudentQuestion] = useState(false);
+  const [fadeUWQuestion, setFadeUWQuestion] = useState(false);
+
+  const handleRadioClick = (e) => {
+    const value = e.target.value;
+    if (formData.isUWstudent === value && showFollowUp) {
+      setShowFollowUp(false);
+      setFormData({ ...formData, isUWstudent: "" });
+    } else {
+      setFormData({ ...formData, isUWstudent: value });
+      setFadeUWQuestion(true);
+      setTimeout(() => {
+        setShowFollowUp(true);
+        setShowStudentQuestion(value === "yes");
+      }, 300);
+    }
+  };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -17,121 +40,182 @@ export default function Sarcb() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
-    // You can add your backend API call or email logic here
   };
 
   return (
-    <div className="p-6 bg-white ">
+    <div className="p-6 bg-white">
       <Breadcrumb />
-      <div
-        style={{ width: "800px" }}
-        className="flex flex-row w-2/3 items-center justify-center p-6 bg-white mx-auto"
-      >
-        {/* Left side: Form */}
-        <div style={{ width: "350px" }} className="w-full pr-6">
-          <div className="py-6">
-            <h1
-              style={{ fontFamily: "Helvetica", fontSize: "2rem" }}
-              className="text-xl text-center text-red-800 font-bold mb-4"
-            >
-              Let's Connect!
-            </h1>
-          </div>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label className="block font-medium mb-1">
-                What is your full name?
-              </label>
-              <input
-                type="text"
-                name="fullname"
-                value={formData.fullname}
-                onChange={handleChange}
-                style={{ borderBottom: "1px solid black" }}
-                className="w-full px-3 py-2 focus:outline-none"
-                required
-              />
-            </div>
-            <div>
-              <label className="block font-medium mb-1">
-                Your Active Phone Number
-              </label>
-              <input
-                type="tel"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                style={{ borderBottom: "1px solid black" }}
-                className="w-full px-3 py-2 focus:outline-none"
-                required
-              />
-            </div>
-            <div>
-              <label className="block font-medium mb-1">
-                Your School Email
-              </label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                style={{ borderBottom: "1px solid black" }}
-                className="w-full px-3 py-2 focus:outline-none"
-                required
-              />
-            </div>
-            <div>
-              <label className="block font-medium mb-1">
-                What is your expected graduation?
-              </label>
-              <input
-                type="text"
-                name="graduation"
-                placeholder="e.g., June 2026"
-                value={formData.graduation}
-                onChange={handleChange}
-                style={{ borderBottom: "1px solid black" }}
-                className="w-full px-3 py-2 focus:outline-none"
-                required
-              />
-            </div>
-            <button
-              type="submit"
-              style={{
-                backgroundColor: "#8c0000d9",
-                fontFamily: "Helvetica",
-                margin: "20px 0",
-              }}
-              className="bg-blue-600 text-white px-4 py-2 rounded font-semibold transform hover:scale-[1.05]"
-            >
-              <span className="flex flex-row flex-wrap">
-                <p style={{ margin: "0px 5px" }}>Submit</p>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="size-5"
-                  style={{
-                    marginBottom: "4px",
-                    marginLeft: "2px",
-                    rotate: " -30deg",
-                  }}
+      <div className="flex flex-row w-2/3 items-center justify-center p-6 bg-white mx-auto">
+        <div className="w-full max-w-md pr-6 flex items-center min-h-[300px]">
+          <form onSubmit={handleSubmit} className="space-y-4 w-full">
+            {!fadeUWQuestion && (
+              <div
+                className={`transition-opacity duration-300 flex flex-col justify-center h-full ${
+                  showFollowUp ? "opacity-0" : "opacity-100"
+                }`}
+              >
+                <h1
+                  style={{ fontSize: "2rem", marginBottom: "30px" }}
+                  className="text-center font-poppins text-red-900 font-bold text-xl"
                 >
-                  <path
-                    strokeLinecap="round"
-                    stroke-linejoin="round"
-                    d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"
+                  Let's Connect!
+                </h1>
+                <label className="block font-medium text-center">
+                  Are you a current UW Student?
+                </label>
+                <div className="flex flex-row justify-center gap-4 mt-2 w-full">
+                  {["yes", "no"].map((val) => (
+                    <label
+                      key={val}
+                      className={`flex items-center gap-2 px-4 border rounded-lg cursor-pointer transition-all ${
+                        formData.isUWstudent === val
+                          ? "border-purple-600 bg-purple-50 text-purple-700"
+                          : "border-gray-300"
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        name="isUWstudent"
+                        value={val}
+                        checked={formData.isUWstudent === val}
+                        onChange={handleRadioClick}
+                        className="hidden"
+                      />
+                      <span className="font-medium text-base capitalize">
+                        {val}
+                      </span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {showFollowUp && (
+              <div className="transition-opacity duration-500 ease-in-out opacity-100">
+                {showStudentQuestion ? (
+                  <>
+                    <InputField
+                      label="What is your full name?"
+                      name="fullname"
+                      value={formData.fullname}
+                      onChange={handleChange}
+                    />{" "}
+                    <InputField
+                      label="Your Active Phone Number"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      type="tel"
+                    />
+                    <InputField
+                      label="Your School Email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      type="email"
+                      placeholder="@uw.edu email"
+                    />
+                    <InputField
+                      label="What is your expected graduation?"
+                      name="graduation"
+                      value={formData.graduation}
+                      onChange={handleChange}
+                      placeholder="e.g., June 2026"
+                    />
+                  </>
+                ) : (
+                  <>
+                    <InputField
+                      label="What is your full name?"
+                      name="fullname"
+                      value={formData.fullname}
+                      onChange={handleChange}
+                    />
+                    <InputField
+                      label="Your Active Phone Number"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      type="tel"
+                    />
+                    <InputField
+                      label="Your Email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      type="email"
+                    />
+                    <div className="mt-5">
+                      <label className="block font-medium mb-1">
+                        What is your role?
+                      </label>
+                      <select
+                        name="role"
+                        value={formData.role}
+                        onChange={handleChange}
+                        className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
+                      >
+                        <option value="">-- Select your role --</option>
+                        <option value="prospective">
+                          Prospective UW Student
+                        </option>
+                        <option value="parent">Parent</option>
+                        <option value="sponsor">Sponsor</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                  </>
+                )}
+
+                <div className="mt-5">
+                  <label className="block font-medium mb-2">
+                    Have a question? Ask us anything!
+                  </label>
+                  <textarea
+                    name="question"
+                    value={formData.question}
+                    onChange={handleChange}
+                    rows={4}
+                    className="w-full px-3 py-2 border border-black-300 focus:outline-none"
+                    placeholder="Type your question here..."
                   />
-                </svg>
-              </span>
-            </button>
+                </div>
+              </div>
+            )}
+
+            {showFollowUp && (
+              <button
+                type="submit"
+                style={{
+                  backgroundColor: "#8c0000d9",
+                  fontFamily: "Helvetica",
+                }}
+                className="bg-blue-600 text-white px-4 py-2 rounded font-semibold transform hover:scale-[1.05] mt-4"
+              >
+                <span className="flex flex-row items-center">
+                  <p className="mr-2">Submit</p>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    className="size-5 rotate-[-30deg]"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"
+                    />
+                  </svg>
+                </span>
+              </button>
+            )}
           </form>
         </div>
 
         {/* Right side: Image */}
-        <div style={{ width: "450px" }} className="flex justify-end">
+        <div style={{ width: "450px" }} className="hidden md:flex justify-end">
           <img
             src="/friendsGather.svg"
             alt="Friends Gather"
@@ -140,6 +224,30 @@ export default function Sarcb() {
           />
         </div>
       </div>
+    </div>
+  );
+}
+
+function InputField({
+  label,
+  name,
+  value,
+  onChange,
+  type = "text",
+  placeholder = "",
+}) {
+  return (
+    <div className="mt-5">
+      <label className="block font-medium">{label}</label>
+      <input
+        type={type}
+        name={name}
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+        className="w-full px-3 py-2 border-b border-black focus:outline-none"
+        required
+      />
     </div>
   );
 }
