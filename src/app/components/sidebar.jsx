@@ -54,7 +54,7 @@ const navigation = [
     children: [
       {
         name: "Orientation & Onboarding",
-        href: "campusStudy/#orientation_onboarding",
+        href: "campus-study/",
       },
       { name: "Campus Access", href: "campusStudy/#campus_access" },
       {
@@ -107,7 +107,13 @@ const navigation = [
     name: "Sign Up for ISAUW",
     icon: ChatBubbleLeftEllipsisIcon,
     current: false,
-    href: "joinISAUW",
+    href: "join-isauw",
+  },
+  {
+    name: "Checklist Summary",
+    icon: DocumentIcon,
+    current: false,
+    href: "/checklistSummary",
   },
 ];
 
