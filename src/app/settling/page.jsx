@@ -8,19 +8,53 @@ import Image from "next/image";
 const posts = [
   {
     id: 1,
-    title: "Boost your conversion rate",
+    title: "Study Tips for Success",
     href: "#",
     description:
-      "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
+      "Essential strategies for academic excellence at UW, from time management to effective note-taking techniques.",
     imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-    date: "Mar 16, 2020",
-    datetime: "2020-03-16",
+      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    date: "Nov 15, 2024",
+    datetime: "2024-11-15",
     author: {
-      name: "Michael Foster",
+      name: "Sarah Chen",
       imageUrl:
-        "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+        "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
     },
+  },
+  {
+    id: 2,
+    title: "Campus Resources Guide",
+    href: "#",
+    description:
+      "Discover hidden gems and essential services across UW campus that every student should know about.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    date: "Nov 10, 2024",
+    datetime: "2024-11-10",
+    author: {
+      name: "Alex Johnson",
+      imageUrl:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    },
+  },
+];
+
+const campusImages = [
+  {
+    src: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    alt: "University of Washington Campus",
+    caption: "Beautiful UW Campus",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    alt: "Students studying in library",
+    caption: "Suzzallo Library Study Area",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    alt: "University classroom",
+    caption: "Modern UW Classroom",
   },
 ];
 
@@ -29,314 +63,422 @@ export default function Page() {
   const headerData = blogHeader[titleName] || {};
 
   return (
-    <div className="bg-white min-h-screen py-10 px-6 md:px-12 lg:px-32 xl:px-48">
-      {/* Breadcrumb */}
-      <Breadcrumb />
+    <div className="bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen">
+      <div className="py-10 px-6 md:px-12 lg:px-32 xl:px-48">
+        <Breadcrumb />
 
-      {/* Header Card */}
-      <div className="mt-8 mb-10 bg-gradient-to-r from-indigo-900 to-purple-700 text-white rounded-lg p-6 text-center">
-        <h1 className="text-lg tracking-widest font-semibold uppercase">
-          {headerData.location || "LOCATION NAME"}
-        </h1>
-        <h2 className="text-3xl md:text-4xl font-bold mt-2">
-          {headerData.title || "Blog Title Placeholder"}
-        </h2>
-      </div>
-
-      <div className="flex flex-col lg:flex-row gap-10">
-        {/* Main Content */}
-        <main className="flex-1 prose prose-lg max-w-none">
-          <div id="phone_connectivity" className="pb-10 mb-10">
-            <h3 className="text-lg font-bold">Phone & Connectivity</h3>
-            <p>
-              As a first-year student coming to the University of Washington
-              Seattle, having a reliable phone and internet connection is
-              essential. When you arrive in the U.S., one of the first things
-              you'll want to do is get a local phone number. Most international
-              students choose to buy a U.S. SIM card from popular carriers such
-              as T-Mobile, AT&T, Verizon, Mint Mobile, or Visible. These
-              carriers offer prepaid plans starting from around $15 to $50 per
-              month, depending on the amount of mobile data you need. Some even
-              offer student discounts or international calling options. <br />{" "}
-              <br />
-              If your current provider in your home country offers international
-              roaming, you can use that temporarily during your first few days,
-              but it’s usually expensive and not suitable for long-term use.
-              It’s recommended to bring an unlocked phone so you can easily
-              switch to a U.S. SIM card. <br /> <br />
-              When it comes to staying connected online, UW provides excellent
-              Wi-Fi coverage across campus. The main networks are “eduroam” and
-              “University of Washington,” with eduroam being the more secure and
-              preferred option, especially since it works at many universities
-              around the world. You’ll use your UW NetID to log into these
-              networks. Wi-Fi is available in classrooms, libraries, dorms,
-              student centers like the HUB, and even in many outdoor areas. If
-              you’re living in a UW dorm such as McMahon, Willow, or Maple Hall,
-              you’ll have access to free Wi-Fi and Ethernet internet directly in
-              your room. <br />
-              <br />
-              However, if you choose to live off-campus, you may need to set up
-              your own home internet service with providers like Xfinity or
-              CenturyLink, which typically costs around $40 to $70 per month. To
-              stay organized, it's helpful to download apps like WhatsApp or
-              Telegram to keep in touch with family and friends, and UW-specific
-              tools like the Husky Mobile app. If you have any trouble setting
-              up your phone or connecting to the internet, UW IT Connect is
-              available to help students with tech support.
+        {/* Enhanced Header */}
+        <div className="mt-8 mb-12 bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-700 text-white rounded-2xl p-8 shadow-2xl relative overflow-hidden">
+          <div className="absolute inset-0 bg-black/10"></div>
+          <div className="relative z-10 text-center">
+            <div className="inline-flex items-center px-4 py-2 bg-white/20 rounded-full text-sm font-medium mb-4 backdrop-blur-sm">
+              <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+              {headerData.location || "U-District"}
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+              {headerData.title || "Campus Orientation and Study Essentials"}
+            </h1>
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+              Your comprehensive guide to thriving at the University of
+              Washington
             </p>
           </div>
+          <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
+          <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-12 -translate-x-12"></div>
+        </div>
 
-          <div id="banking_finances" className="pb-10 mb-10">
-            <h3 className="text-lg font-bold">Banking & Finances</h3>
-            <p>
-              As a first-year student at the University of Washington Seattle,
-              opening a U.S. bank account is an important step in managing your
-              finances and making everyday transactions more convenient. Whether
-              you need to pay for food, receive paychecks from a part-time job,
-              or send money to friends, having a U.S.-based account will make
-              your financial life much easier. <br />
-              <br /> The two most common types of bank accounts you'll want to
-              open are a checking account and a savings account. A checking
-              account is used for everyday transactions such as paying bills,
-              making purchases, or withdrawing cash from ATMs. You’ll get a
-              debit card connected to your checking account that works like a
-              digital wallet—allowing you to pay at stores, online, and even add
-              to your Apple Pay or Google Pay for tap-to-pay purchases. Most
-              debit cards also work with Zelle, a bank-to-bank transfer app
-              built into many U.S. banking apps that lets you send and receive
-              money instantly using just an email or phone number.
-              <br />
-              <br /> A savings account, on the other hand, is where you can
-              store money you don’t plan to use immediately. It’s useful for
-              budgeting, emergency savings, or long-term planning. Some savings
-              accounts also offer a small amount of interest, though this varies
-              depending on the bank. <br />
-              <br /> When it comes to choosing a bank, many UW students prefer
-              large national banks such as Bank of America, Chase, and Wells
-              Fargo because they have branches and ATMs near campus, including
-              along University Way ("The Ave") and at the U-District Link light
-              rail station. These banks offer student-friendly checking accounts
-              with no monthly maintenance fees and low initial deposit
-              requirements. Some students also choose local credit unions such
-              as WSECU (Washington State Employees Credit Union) or BECU (Boeing
-              Employees Credit Union), which often have lower fees and better
-              customer service but may have fewer physical locations.
-              <br />
-              <br /> You may also consider applying for a credit card,
-              especially if you're planning to build your credit history in the
-              U.S. Many banks offer starter credit cards for students with low
-              credit limits, making it easier to build responsible financial
-              habits. Be cautious with credit cards—only spend what you can
-              afford to pay back, and always pay your balance on time to avoid
-              interest and late fees. <br />
-              <br /> In addition to Zelle, other popular peer-to-peer (P2P)
-              payment apps include Venmo and Cash App, which are commonly used
-              among students to split bills, pay for club events, or buy
-              secondhand items. You can link these apps to your checking account
-              or debit card. For added convenience, many students also link
-              their debit or credit cards to Apple Pay or Google Pay so they can
-              make secure, contactless payments with their smartphones.
-              <br />
-              <br /> To open a bank account, you’ll generally need your
-              passport, I-20 or DS-2019, UW student ID, U.S. phone number, and
-              local mailing address (such as your dorm or apartment). It’s best
-              to visit a bank branch in person during your first few days in
-              Seattle. Once your account is set up, download your bank’s app for
-              mobile banking, where you can monitor your balance, transfer
-              money, and pay bills on the go.
-              <br />
-              <br /> Lastly, always be cautious of scams or fraud attempts.
-              Never share your bank details with strangers, and enable
-              two-factor authentication when available. UW also offers financial
-              wellness resources if you ever need help understanding how to
-              manage your money wisely.
-            </p>
-          </div>
-          <div id="transportation_options" className="pb-10 mb-10">
-            <h3 className="text-lg font-bold">Transportation Option</h3>
-            <p>
-              Getting around Seattle as a first-year student at the University
-              of Washington is convenient and student-friendly thanks to the
-              city’s well-connected public transportation system and UW’s
-              resources. One of the most popular modes of transportation is the
-              Link Light Rail, which has a station (U District Station) just a
-              few minutes’ walk from campus. The Link connects the University
-              District to downtown Seattle, the airport (SeaTac), Capitol Hill,
-              and other key areas. It’s fast, reliable, and ideal for weekend
-              trips or commuting to internships off campus. <br />
-              <br /> UW students receive a U-PASS, which is included in your
-              tuition and gives you unlimited rides on public buses, the light
-              rail, and even some regional transit services like Sound Transit
-              and Community Transit. With your Husky Card, you can simply tap in
-              when boarding and tap out when needed—no need to buy separate
-              tickets. This makes it incredibly easy and affordable to explore
-              Seattle and the surrounding neighborhoods without a car. <br />
-              <br /> For local travel within the city, King County Metro buses
-              are a great option. Bus stops are located all around campus and
-              the U-District, and schedules can be checked using apps like
-              OneBusAway, Google Maps, or Transit App. The buses are frequent
-              and reliable, even during weekends and evenings. If you prefer
-              biking, UW also supports cycling with bike racks, repair stations,
-              and a network of bike lanes around campus. You can also rent
-              electric bikes or scooters from companies like Lime, Bird, or
-              Spin—just download the app and scan to ride. <br />
-              <br />
-              Many students also use rideshare services such as Uber or Lyft for
-              late-night travel, grocery trips, or when traveling in groups.
-              While more expensive than public transit, they’re helpful when you
-              need flexibility or are traveling outside the light rail or bus
-              coverage. For day trips or errands, car rentals and Zipcar (a
-              car-sharing service available near campus) are also available.
-              Zipcar allows you to rent a vehicle by the hour or day, and you
-              only need a valid driver's license and a student membership to
-              sign up <br />
-              <br /> If you’re considering bringing your own car, keep in mind
-              that parking on campus is limited and expensive, and you’ll need
-              to apply for a parking permit. For most students living in the
-              dorms or nearby housing, having a car isn’t necessary, thanks to
-              the wide availability of transit and walkable neighborhoods.
-              <br />
-              <br />
-              Overall, transportation at UW is affordable, sustainable, and
-              designed to support students whether you're heading to class,
-              going downtown, or exploring the greater Seattle area. Make sure
-              to activate your U-PASS, download helpful transit apps, and take
-              advantage of the safe and accessible transit options available
-              throughout the city.
-            </p>
-          </div>
-          <div id="everyday_essentials" className="pb-10 mb-10">
-            <h3 className="text-lg font-bold">Everyday Essentials</h3>
-            <p>
-              As a new student settling into life at the University of
-              Washington Seattle, knowing where and how to get your everyday
-              essentials—like groceries, toiletries, school supplies, and basic
-              household items—is key to feeling comfortable and prepared.
-              Fortunately, the U-District and nearby neighborhoods offer a wide
-              variety of stores and resources to help you get what you need
-              without going far from campus. <br />
-              <br /> For groceries, there are several options depending on your
-              budget and preferences. Safeway, Trader Joe’s, and Whole Foods are
-              popular among students and are all accessible by foot, bus, or
-              light rail. Safeway offers a wide range of items at affordable
-              prices, especially with a store membership card. Trader Joe’s is
-              known for budget-friendly snacks and meals, while Whole Foods
-              carries organic and specialty items. For Asian groceries,
-              Uwajimaya in the International District and H Mart in University
-              Village or downtown are great for ingredients like rice, noodles,
-              sauces, and snacks from various Asian countries. There’s also
-              Target and CVS nearby for personal care items, laundry products,
-              and cleaning supplies.
-              <br />
-              <br /> For day-to-day school supplies, tech accessories, and
-              university merchandise, you can visit the University Book Store
-              right on University Way (“The Ave”). They carry notebooks, pens,
-              UW apparel, and even laptops and electronics. Stores like Best Buy
-              (Northgate or downtown) or Office Depot can also be helpful if you
-              need larger equipment like printers or external monitors for your
-              dorm setup.
-              <br />
-              <br /> If you’re living in a dorm or apartment, you may want to
-              stock up on essentials like bedsheets, towels, kitchen utensils,
-              and storage bins. Target and IKEA (reachable by light rail and
-              bus) are go-to destinations for affordable furniture and home
-              goods. You can also find secondhand items through Facebook
-              Marketplace, Goodwill, or student swap groups on platforms like
-              Discord or Instagram. <br />
-              <br />
-              For quick meals or snacks, the UW campus and surrounding
-              U-District area are packed with cafes, food trucks, bubble tea
-              shops, and fast casual restaurants, making it easy to grab
-              something between classes. Most places accept debit/credit cards,
-              and many support Apple Pay or Google Pay for fast checkout. Food
-              delivery apps like Uber Eats, DoorDash, and Grubhub are also
-              widely used if you prefer eating at home. <br />
-              <br />
-              Don't forget to bring or buy reusable items like a water bottle,
-              shopping bag, or travel mug—not only do they reduce waste, but
-              many Seattle businesses give small discounts if you bring your
-              own. And if you need anything in a hurry, Amazon lockers are
-              located around campus, letting you order items online and pick
-              them up conveniently. <br />
-              <br />
-              Adjusting to a new place can feel overwhelming at first, but
-              Seattle offers a supportive, student-friendly environment with
-              everything you need within easy reach. With time, you’ll build
-              your own routines and discover go-to spots that make everyday life
-              smoother and more enjoyable.
-            </p>
-          </div>
-        </main>
+        <div className="flex flex-col lg:flex-row gap-12">
+          <main className="flex-1">
+            <article className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+              <div className="relative h-64 md:h-80">
+                <img
+                  src="https://uploads.visitseattle.org/2023/01/23114449/Banner_UW-Quad-CorbinSchaffer.jpg"
+                  alt="UW Essentials Cover"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                <div className="absolute bottom-6 left-6 text-white">
+                  <p className="text-sm opacity-90">
+                    Published on June 1, 2025
+                  </p>
+                  <h2 className="text-2xl font-bold mt-1">
+                    Essential Guide to UW Life
+                  </h2>
+                </div>
+              </div>
 
-        {/* Sidebar */}
-        <aside className="w-full lg:w-80 space-y-6">
-          <div className="bg-purple-100 rounded-lg p-4 text-center">
-            <Image
-              src="/assets/enrico.png"
-              alt="Author profile"
-              width={80}
-              height={80}
-              className="rounded-full mx-auto mb-2"
-            />
-            <h4 className="font-semibold text-purple-900">Enrico Pratama</h4>
-            <p className="text-sm text-gray-700">
-              AMAZON Intern, Teaching Assistant, CS Tutor, WebDev Lead, Google
-              SWE
-            </p>
-          </div>
-          <div className="bg-white border rounded-lg p-4">
-            <h5 className="text-sm font-semibold mb-2 text-gray-800">
-              In this article
-            </h5>
-            <ul className="list-disc pl-5 space-y-1 text-sm text-gray-600">
-              <li>Safeway UDistrict</li>
-              <li>AI Writing Pitfalls</li>
-              <li>ChatGPT Style</li>
-              <li>AI Transparency</li>
-            </ul>
-          </div>
+              <div className="p-8 md:p-12 prose prose-lg max-w-none">
+                <div id="phone_connectivity">
+                  <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6 border-l-4 border-yellow-500 pl-4">
+                    Phone & Connectivity
+                  </h2>
+                  <p className="text-gray-700 leading-relaxed text-lg mb-6">
+                    When you arrive at UW Seattle, getting a local phone number
+                    is one of the first steps. Carriers like T-Mobile, AT&T, and
+                    Mint Mobile offer prepaid plans from $15 to $50/month. Bring
+                    an unlocked phone for easier switching. UW offers reliable
+                    Wi-Fi on campus through “eduroam,” accessible with your
+                    NetID. Dorms provide free Wi-Fi and Ethernet, while
+                    off-campus housing may require personal internet service
+                    like Xfinity.
+                  </p>
+                </div>
+                <div className="bg-blue-50 border-l-4 border-blue-400 p-6 my-8 rounded-r-lg">
+                  <h4 className="font-semibold text-blue-900 mb-2">
+                    💡 Pro Tip
+                  </h4>
+                  <p className="text-blue-800">
+                    Set up your U.S. SIM card as soon as you land—don’t wait!
+                    There are great deals for under $30/month. $50 is usually
+                    too much for unlimited plans. Always compare and check for
+                    student discounts.
+                  </p>
+                </div>
+                <div id="banking_finances">
+                  <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6 border-l-4 border-pink-500 pl-4">
+                    Banking & Finances
+                  </h2>
+                  <p className="text-gray-700 leading-relaxed text-lg mb-6">
+                    Open a U.S. bank account with banks like Chase, Bank of
+                    America, or credit unions like WSECU. Checking accounts let
+                    you pay bills and receive transfers via Zelle. Consider a
+                    student credit card to build credit responsibly. Bring your
+                    passport, I-20, and UW ID when opening an account. Use Venmo
+                    or Cash App for peer payments and enable two-factor
+                    authentication to stay secure.
+                  </p>
+                </div>
+                <div id="transportation_options">
+                  {" "}
+                  <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6 border-l-4 border-blue-400 pl-4">
+                    Transportation
+                  </h2>
+                  <p className="text-gray-700 leading-relaxed text-lg mb-6">
+                    UW’s U-PASS gives you free rides on Metro buses and Link
+                    Light Rail using your Husky Card. The U District Station
+                    connects you to downtown and the airport. Use apps like
+                    OneBusAway and Transit for schedules. Rent e-bikes/scooters
+                    or use Zipcar for errands. Most students don’t need
+                    cars—parking is limited and expensive.
+                  </p>
+                </div>
+                <div className="bg-gray-50 border-l-4 border-black p-6 my-8 rounded-r-lg">
+                  <h4 className="text-sm text-blue-900 font-semibold mb-2">
+                    Q: Would you recommend new students get a car or rely on
+                    public transportation?
+                  </h4>
 
-          <div className="bg-white py-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">
-              From the blog
-            </h3>
-            <div className="space-y-6">
-              {posts.map((post) => (
-                <article
-                  key={post.id}
-                  className="relative isolate flex flex-col justify-end overflow-hidden rounded-xl bg-gray-900 px-5 pt-56 pb-5"
-                >
-                  <img
-                    src={post.imageUrl}
-                    alt=""
-                    className="absolute inset-0 -z-10 w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40" />
-                  <div className="absolute inset-0 -z-10 rounded-xl ring-1 ring-gray-900/10 ring-inset" />
-
-                  <div className="text-sm text-gray-300 flex items-center gap-x-2">
-                    <time dateTime={post.datetime}>{post.date}</time>
-                    <span className="text-white/50">•</span>
-                    <div className="flex items-center gap-x-2">
+                  <blockquote className="pl-5 mt-4">
+                    <p className="text-lg text-gray-800 font-medium leading-relaxed italic">
+                      “For most students, public transport is the way to go.
+                      It's free with your Husky Card and super reliable — you
+                      really don’t need a car.”
+                    </p>
+                    <div className="flex items-center gap-3 mt-4">
                       <img
-                        src={post.author.imageUrl}
-                        alt=""
-                        className="w-6 h-6 rounded-full"
+                        src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=3&w=64&h=64&q=80"
+                        alt="Enrico Pratama"
+                        className="w-10 h-10 rounded-full object-cover"
                       />
-                      <span>{post.author.name}</span>
+                      <footer className="text-sm text-indigo-700 font-semibold">
+                        — Enrico Pratama
+                      </footer>
+                    </div>
+                  </blockquote>
+                </div>
+
+                <div id="everyday_essentials">
+                  <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6 border-l-4 border-red-400 pl-4">
+                    Everyday Essentials
+                  </h2>
+                  <p className="text-gray-700 leading-relaxed text-lg mb-6">
+                    Grocery stores nearby include Safeway, Trader Joe’s, and
+                    Whole Foods. For Asian ingredients, visit H Mart or
+                    Uwajimaya. Get school supplies at the UW Bookstore and
+                    Target. Dorm items can be found at IKEA or Facebook
+                    Marketplace. Most places accept cards and mobile pay. Bring
+                    reusable items and use Amazon Lockers for quick deliveries.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </main>
+
+          {/* Sidebar */}
+          <aside className="w-full lg:w-80 space-y-6">
+            {/* Table of Contents */}
+            <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+              <h5 className="text-lg font-bold mb-4 text-gray-900 flex items-center">
+                <span className="w-2 h-2 bg-indigo-500 rounded-full mr-3"></span>
+                In this article
+              </h5>
+              <ul className="space-y-3">
+                <li>
+                  <a
+                    href="#phone_connectivity"
+                    className="flex items-center text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-lg hover:bg-blue-50"
+                  >
+                    <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-3"></span>
+                    Phone & Connectivity
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#banking_finances"
+                    className="flex items-center text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-lg hover:bg-blue-50"
+                  >
+                    <span className="w-1.5 h-1.5 bg-green-400 rounded-full mr-3"></span>
+                    banking & Finances
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#transportation_options"
+                    className="flex items-center text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-lg hover:bg-blue-50"
+                  >
+                    <span className="w-1.5 h-1.5 bg-orange-400 rounded-full mr-3"></span>
+                    Transportation
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#everyday_essentials"
+                    className="flex items-center text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-lg hover:bg-blue-50"
+                  >
+                    <span className="w-1.5 h-1.5 bg-purple-400 rounded-full mr-3"></span>
+                    Everyday Essential
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-lg border border-purple-100 relative space-y-6">
+              {/* Header with underline */}
+              <div className="relative w-fit mb-4">
+                <h2 className="text-3xl font-bold text-gray-900 relative z-10">
+                  Testimonial
+                </h2>
+                <div className="absolute left-0 bottom-[-6px] h-5 w-3/4 bg-yellow-400 z-0"></div>
+              </div>
+
+              {/* Big Quotation */}
+              <div className="absolute w-65 h-32">
+                <div className="inset-0 flex items-center justify-center">
+                  <p className="text-[80px] leading-none text-black font-serif select-none">
+                    “”
+                  </p>
+                </div>
+              </div>
+
+              {/* Quoted testimonial */}
+              <p
+                style={{ marginTop: "75px" }}
+                className="text-lg text-gray-800 leading-relaxed italic"
+              >
+                I’m on Xfinity’s family plan with two friends — I pay just
+                $20/month for unlimited data with hotspot. It’s super
+                affordable, and coverage around campus is great.
+              </p>
+
+              {/* Profile footer */}
+              <div className="flex items-center gap-3">
+                <img
+                  src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=3&w=64&h=64&q=80"
+                  alt="George Evans"
+                  className="w-10 h-10 rounded-full object-cover"
+                />
+                <footer className="text-sm text-indigo-700 font-semibold">
+                  — George Evans
+                </footer>
+              </div>
+            </div>
+
+            {/* Mobile Data store near me */}
+            <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+              <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
+                <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                Nearby Mobile Service Provider
+              </h3>
+              <div className="space-y-4">
+                {[
+                  {
+                    name: "T-Mobile Store",
+                    address: "4732 University Way NE, Seattle, WA 98105",
+                    image:
+                      "https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                  },
+                  {
+                    name: "AT&T Store",
+                    address: "4700 Brooklyn Ave NE, Seattle, WA 98105",
+                    image:
+                      "https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                  },
+                  {
+                    name: "Mint Mobile (via Target)",
+                    address: "4535 University Way NE, Seattle, WA 98105",
+                    image:
+                      "https://images.unsplash.com/photo-1589149098258-3e9102cd63d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                  },
+                ].map((store, index) => (
+                  <div
+                    key={index}
+                    className="relative group overflow-hidden rounded-lg border border-gray-200"
+                  >
+                    <img
+                      src={store.image}
+                      alt={store.name}
+                      className="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute bottom-2 left-2 text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div>{store.name}</div>
+                      <div className="text-xs font-normal">{store.address}</div>
                     </div>
                   </div>
-                  <h3 className="mt-2 text-base font-semibold text-white">
-                    <a href={post.href}>
-                      <span className="absolute inset-0" />
-                      {post.title}
-                    </a>
-                  </h3>
-                </article>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        </aside>
+
+            {/* Banking Stat */}
+            <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+              <h3 className="text-lg font-bold text-gray-900 mb-6 flex items-center">
+                <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                International Students' Banking Choices
+              </h3>
+              <div className="space-y-4">
+                {/* Chase */}
+                <div className="space-y-1">
+                  <div className="flex justify-between text-sm font-semibold">
+                    <span>Chase</span>
+                    <span>40%</span>
+                  </div>
+                  <div className="w-full bg-red-100 rounded-xl h-5">
+                    <div
+                      className="h-5 rounded-xl"
+                      style={{ width: "40%", backgroundColor: "#d84d3d" }}
+                    ></div>
+                  </div>
+                </div>
+
+                {/* Bank of America */}
+                <div className="space-y-1">
+                  <div className="flex justify-between text-sm font-semibold">
+                    <span>Bank of America</span>
+                    <span>25%</span>
+                  </div>
+                  <div className="w-full bg-green-100 rounded-xl h-5">
+                    <div
+                      className="fbg-green-500 h-5 rounded-xl"
+                      style={{ width: "25%" }}
+                    ></div>
+                  </div>
+                </div>
+
+                {/* WSECU */}
+                <div className="space-y-1">
+                  <div className="flex justify-between text-sm font-semibold">
+                    <span>WSECU</span>
+                    <span>20%</span>
+                  </div>
+                  <div className="w-full bg-purple-100 rounded-xl h-5">
+                    <div
+                      className="bg-purple-500 h-5 rounded-xl"
+                      style={{ width: "20%" }}
+                    ></div>
+                  </div>
+                </div>
+
+                {/* Others */}
+                <div className="space-y-1">
+                  <div className="flex justify-between text-sm font-semibold">
+                    <span>Others</span>
+                    <span>15%</span>
+                  </div>
+                  <div
+                    style={{ backgroundColor: "#dbeafe" }}
+                    className="w-full rounded-xl h-5"
+                  >
+                    <div
+                      className="bg-blue-500 h-5 rounded-xl"
+                      style={{ width: "15%" }}
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Top Grocery Market */}
+            <div className="bg-white rounded-xl p-6 shadow-md border border-gray-200 space-y-4">
+              <h3 className="text-lg font-bold text-gray-900">
+                🛍️ Top Grocery Stores at UW
+              </h3>
+
+              <div>
+                <p className="font-semibold text-indigo-700">Trader Joe's</p>
+                <p className="text-sm text-gray-700">
+                  Affordable groceries, fresh produce, and student-friendly meal
+                  options — famous for snacks and frozen meals.
+                </p>
+              </div>
+
+              <div>
+                <p className="font-semibold text-indigo-700">Safeway</p>
+                <p className="text-sm text-gray-700">
+                  Large grocery chain with everything from fresh bakery and
+                  meats to pharmacy and household goods — open late for
+                  convenience.
+                </p>
+              </div>
+            </div>
+
+            {/* Related Articles */}
+            {/* <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+              <h3 className="text-lg font-bold text-gray-900 mb-6 flex items-center">
+                <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                Related Articles
+              </h3>
+              <div className="space-y-4">
+                {posts.map((post) => (
+                  <article
+                    key={post.id}
+                    className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-gray-900 to-gray-800 p-4 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                  >
+                    <img
+                      src={post.imageUrl}
+                      alt=""
+                      className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+
+                    <div className="relative z-10">
+                      <div className="text-xs text-gray-300 flex items-center gap-x-2 mb-2">
+                        <time dateTime={post.datetime}>{post.date}</time>
+                        <span className="text-white/50">•</span>
+                        <div className="flex items-center gap-x-1">
+                          <img
+                            src={post.author.imageUrl}
+                            alt=""
+                            className="w-4 h-4 rounded-full"
+                          />
+                          <span className="text-xs">{post.author.name}</span>
+                        </div>
+                      </div>
+                      <h4 className="text-sm font-semibold text-white mb-1 group-hover:text-blue-200 transition-colors">
+                        <a href={post.href}>
+                          <span className="absolute inset-0" />
+                          {post.title}
+                        </a>
+                      </h4>
+                      <p className="text-xs text-gray-300 line-clamp-2">
+                        {post.description}
+                      </p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div> */}
+          </aside>
+        </div>
       </div>
     </div>
   );
