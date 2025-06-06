@@ -2,7 +2,7 @@
     "essentialDocuments" : {
         "title": "Essential Documents",
         "imageSrc": "blue",
-        "location" : "University District",
+        "location" : "Northgate",
         "content" : ""
     },
     "checklistSummary" : {
@@ -12,25 +12,25 @@
         "content" : ""
     },
     "campusstudy" : {
-        "title" : "Campus Study",
+        "title" : "Campus Orientation & Study Essentials",
         "imageSrc" : "white",
-        "location" : "",
+        "location" : "Ravenna",
         "content" : ""
     },
     "social" : {
-        "title" : "Social",
+        "title" : "Social & Academic Integration",
         "imageSrc" : "purple",
-        "location" : "",
+        "location" : "Downtown Seattle",
         "content" : ""
     },
     "settling" : {
         "title" : "Settling In",
         "imageSrc" : "green",
-        "location" : "",
+        "location" : "U-district",
         "content" : ""
     },
     "work" : {
-        "title" : "Part-Time Work and Academic Credits",
+        "title" : "On-campus Work Opportunities",
         "imageSrc" : "purple",
         "location" : "South Seattle",
         "content" : ""
