@@ -24,12 +24,12 @@ export default function Card({
   }, [animation]); 
 
   return (
-    <div className={`max-w-lg mx-auto bg-white shadow-lg overflow-hidden`}>
+    <div className="w-full max-w-lg mx-auto bg-white shadow-lg overflow-hidden sm:max-w-md md:max-w-lg lg:max-w-xl p-4 sm:p-6">
       <div className="relative w-full h-77 ">
         <Image src={imageSrc} alt={title} fill style={{ objectFit: "cover" }}/>
       </div>
-      <div className="p-13 -mt-6 mb-8">
-        <div className="flex mb-2 justify-end">
+      <div className="p-10 -mt-6 mb-8">
+        <div className="flex mt-4 mb-2 justify-end">
           <button onClick={() => {
               startAnimation(); // Start animation
               onPrev(); // Go to the next card
@@ -40,9 +40,9 @@ export default function Card({
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              strokeWidth="1.5"
+              strokeWidth="2.5"
               stroke="currentColor"
-              className="size-5"
+              className="size-7"
             >
               <path
                 strokeLinecap="round"
@@ -62,9 +62,9 @@ export default function Card({
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              strokeWidth="1.5"
+              strokeWidth="2.5"
               stroke="currentColor"
-              className="size-5"
+              className="size-7"
             >
               <path
                 strokeLinecap="round"
