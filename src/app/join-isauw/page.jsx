@@ -75,21 +75,21 @@ export default function Sarcb() {
   return (
     <div className="p-6 bg-white">
       <Breadcrumb />
-      <div className="flex flex-row w-2/3 items-center justify-center p-6 bg-white mx-auto">
-        <div className="w-full max-w-md pr-6 flex items-center min-h-[300px]">
+      <div className="flex flex-col-reverse md:flex-row w-full md:w-2/3 items-center justify-center p-6 bg-white mx-auto">
+        <div className="w-full max-w-md md:pr-6 flex items-center md:min-h-[300px]">
           <form onSubmit={handleSubmit} className="space-y-4 w-full">
+            <h1
+              style={{ fontSize: "2rem", marginBottom: "30px" }}
+              className="text-center font-poppins text-red-900 font-bold text-xl"
+            >
+              Let's Connect!
+            </h1>
             {!fadeUWQuestion && (
               <div
-                className={`transition-opacity duration-300 flex flex-col justify-center h-full ${
+                className={`transition-opacity flex flex-col justify-center h-full ${
                   showFollowUp ? "opacity-0" : "opacity-100"
                 }`}
               >
-                <h1
-                  style={{ fontSize: "2rem", marginBottom: "30px" }}
-                  className="text-center font-poppins text-red-900 font-bold text-xl"
-                >
-                  Let's Connect!
-                </h1>
                 <label className="block font-medium text-center">
                   Are you a current UW Student?
                 </label>
@@ -121,7 +121,7 @@ export default function Sarcb() {
             )}
 
             {showFollowUp && (
-              <div className="transition-opacity duration-500 ease-in-out opacity-100">
+              <div className="transition-opacity ease-in-out opacity-100">
                 {showStudentQuestion ? (
                   <>
                     <InputField
@@ -243,14 +243,16 @@ export default function Sarcb() {
             )}
           </form>
         </div>
-
         {/* Right side: Image */}
-        <div style={{ width: "450px" }} className="hidden md:flex justify-end">
+        <div
+          className={`flex justify-end md:w-full w-50 transition-opacity ${
+            fadeUWQuestion ? "hidden md:block" : ""
+          }`}
+        >
           <img
             src="/friendsGather.svg"
             alt="Friends Gather"
-            className="h-auto"
-            style={{ width: "350px" }}
+            className="h-auto w-100"
           />
         </div>
       </div>
