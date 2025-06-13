@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import Breadcrumb from "../components/breadcrumb";
 import blogHeader from "../../../public/data/blogHeader.json";
 import Image from "next/image";
+import ChatBubble from "../components/chatBubble";
 
 export default function Page() {
   const titleName = usePathname().split("/").at(-1);
@@ -30,13 +31,7 @@ export default function Page() {
       title: "Undergraduate Research Assistantships",
       color: "purple",
     },
-    {
-      id: "tech_positions",
-      title: "Student Technology Positions",
-      color: "teal",
-    },
-    { id: "library_jobs", title: "UW Libraries", color: "indigo" },
-    { id: "how_to_apply", title: "How to Apply", color: "pink" },
+    { id: "library_jobs", title: "UW Libraries", color: "indigo" }
   ];
 
   return (
@@ -121,197 +116,16 @@ export default function Page() {
                 </p>
                 <div className="bg-green-50 border-l-4 border-green-400 p-6 my-8 rounded-r-lg">
                   <h4 className="font-semibold text-green-900 mb-2">
-                    💡 HFS Perk
+                    💡 HFS Perks
                   </h4>
                   <p className="text-green-800">
                     Many HFS jobs offer meal benefits or discounts, helping you
-                    save on food costs!
+                    save on food costs! Hear what our own ISAUW officer has to
+                    say about working at Starbucks:
                   </p>
                 </div>
 
-                <div class="flex items-start gap-2.5">
-                  <img
-                    class="w-8 h-8 rounded-full"
-                    src="/docs/images/people/profile-picture-3.jpg"
-                    alt="Jese image"
-                  />
-                  <div class="flex flex-col gap-1 w-full max-w-[320px]">
-                    <div class="flex items-center space-x-2 rtl:space-x-reverse">
-                      <span class="text-sm font-semibold text-gray-900 dark:text-white">
-                        Bonnie Green
-                      </span>
-                      <span class="text-sm font-normal text-gray-500 dark:text-gray-400">
-                        11:46
-                      </span>
-                    </div>
-                    <div class="flex flex-col leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700">
-                      <p class="text-sm font-normal text-gray-900 dark:text-white">
-                        {" "}
-                        That's awesome. I think our users will really appreciate
-                        the improvements.
-                      </p>
-                    </div>
-                    <span class="text-sm font-normal text-gray-500 dark:text-gray-400">
-                      Delivered
-                    </span>
-                  </div>
-                  <button
-                    id="dropdownMenuIconButton"
-                    data-dropdown-toggle="dropdownDots"
-                    data-dropdown-placement="bottom-start"
-                    class="inline-flex self-center items-center p-2 text-sm font-medium text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-800 dark:focus:ring-gray-600"
-                    type="button"
-                  >
-                    <svg
-                      class="w-4 h-4 text-gray-500 dark:text-gray-400"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="currentColor"
-                      viewBox="0 0 4 15"
-                    >
-                      <path d="M3.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6.041a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5.959a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
-                    </svg>
-                  </button>
-                  <div
-                    id="dropdownDots"
-                    class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-40 dark:bg-gray-700 dark:divide-gray-600"
-                  >
-                    <ul
-                      class="py-2 text-sm text-gray-700 dark:text-gray-200"
-                      aria-labelledby="dropdownMenuIconButton"
-                    >
-                      <li>
-                        <a
-                          href="#"
-                          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                        >
-                          Reply
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="#"
-                          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                        >
-                          Forward
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="#"
-                          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                        >
-                          Copy
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="#"
-                          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                        >
-                          Report
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="#"
-                          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                        >
-                          Delete
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div class="flex items-start gap-2.5">
-                  <img
-                    class="w-8 h-8 rounded-full"
-                    src="/docs/images/people/profile-picture-3.jpg"
-                    alt="Jese image"
-                  />
-                  <div class="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700">
-                    <div class="flex items-center space-x-2 rtl:space-x-reverse">
-                      <span class="text-sm font-semibold text-gray-900 dark:text-white">
-                        George Evans (Webdev Officer)
-                      </span>
-                      <span class="text-sm font-normal text-gray-500 dark:text-gray-400">
-                        11:46
-                      </span>
-                    </div>
-                    <p class="text-sm font-normal py-2.5 text-gray-900 dark:text-white">
-                      Oh! I am working at Starbucks at HUB right now and I get a
-                      lot of free drinks as a barista!
-                    </p>
-                  </div>
-                  <button
-                    id="dropdownMenuIconButton"
-                    data-dropdown-toggle="dropdownDots"
-                    data-dropdown-placement="bottom-start"
-                    class="inline-flex self-center items-center p-2 text-sm font-medium text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-800 dark:focus:ring-gray-600"
-                    type="button"
-                  >
-                    <svg
-                      class="w-4 h-4 text-gray-500 dark:text-gray-400"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="currentColor"
-                      viewBox="0 0 4 15"
-                    >
-                      <path d="M3.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6.041a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5.959a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
-                    </svg>
-                  </button>
-                  <div
-                    id="dropdownDots"
-                    class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-40 dark:bg-gray-700 dark:divide-gray-600"
-                  >
-                    <ul
-                      class="py-2 text-sm text-gray-700 dark:text-gray-200"
-                      aria-labelledby="dropdownMenuIconButton"
-                    >
-                      <li>
-                        <a
-                          href="#"
-                          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                        >
-                          Reply
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="#"
-                          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                        >
-                          Forward
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="#"
-                          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                        >
-                          Copy
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="#"
-                          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                        >
-                          Report
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="#"
-                          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                        >
-                          Delete
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+                <ChatBubble />
 
                 <h3
                   id="ta_positions"
@@ -320,18 +134,64 @@ export default function Page() {
                   Teaching Assistant (TA) Positions
                 </h3>
                 <p className="text-gray-700 leading-relaxed text-lg mb-6">
-                  TA roles are available in many departments, typically for
-                  upperclassmen or grad students. Requirements include:
+                  TA roles are available for students in many departments. Being
+                  a TA allows you to gain valuable experience managing a large
+                  group of students, and will significantly boost your resume as
+                  well! Some benefits being a TA include:
                 </p>
                 <ul className="list-disc pl-5 space-y-1 text-gray-700 leading-relaxed text-lg mb-6">
-                  <li>Strong academic standing</li>
+                  <li>Enrolled in at least 6 credits (for undergraduate TAs) or 10 credits (for graduate TAs)</li>
                   <li>Completion of the course</li>
-                  <li>Clear communication skills</li>
                 </ul>
                 <p className="text-gray-700 leading-relaxed text-lg mb-6">
-                  These roles often include tuition waivers and competitive
-                  stipends.
+                  Some of these roles can be applied through website portals, but can also be applied through emailing you professors. It is important to be proactive and getting close to professors whenever you have the chance. 
                 </p>
+                 <div className="mt-8 bg-blue-50 border-l-4 border-blue-400 p-6 rounded-r-lg mb-4">
+                  <h3 className="text-xl font-semibold text-blue-900 mb-2">
+                    Some Useful TA Application Links
+                  </h3>
+                  <ul className="list-disc list-inside text-blue-800 space-y-1">
+                    <li>
+                      <a
+                        href="https://courses.cs.washington.edu/courses/cse14x/ta/"
+                        className="underline hover:text-blue-600 transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Apply to be a CSE 12X TA 
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://ischool.uw.edu/about/jobs/students"
+                        className="underline hover:text-blue-600 transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Apply to be a Informatics TA
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://wp.ece.uw.edu/eceta/prospective/"
+                        className="underline hover:text-blue-600 transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Apply to be a ECE TA
+                      </a>
+                    </li>
+                    {/* Add more links as needed */}
+                  </ul>
+                </div>
+          
+                <div className="bg-yellow-50 border-l-4 border-yellow-300 p-4 mb-6 rounded-r-lg">
+                  <p className="text-yellow-800 text-base">
+                    Note: Some departments (such as Mathematics and Physics) may
+                    require you to be enrolled in a Master’s program in order to
+                    qualify for a TA position.
+                  </p>
+                </div>
 
                 <h3
                   id="research_assistantships"
@@ -340,7 +200,7 @@ export default function Page() {
                   Undergraduate Research Assistantships
                 </h3>
                 <p className="text-gray-700 leading-relaxed text-lg mb-6">
-                  Paid research roles allow students to:
+                  Undergraduate Research Assistantships (URAs) at the University of Washington (UW) offer students a valuable opportunity to engage in hands-on research across various disciplines. These positions allow undergraduates to collaborate with faculty members on real-world projects, enhancing their academic experience and providing practical skills applicable to future careers. 
                 </p>
                 <ul className="list-disc pl-5 space-y-1 text-gray-700 leading-relaxed text-lg mb-6">
                   <li>Collaborate with faculty on real-world projects</li>
@@ -348,6 +208,8 @@ export default function Page() {
                   <li>Contribute to publications or conferences</li>
                   <li>Earn course credit in some cases</li>
                 </ul>
+                <p>Take a little sneak peek at what one of our ISAUW officers :</p>
+
 
                 <h3
                   id="tech_positions"
@@ -413,8 +275,8 @@ export default function Page() {
             </article>
           </main>
 
-          {/* Enhanced Visual Sidebar */}
-          <aside className="w-full lg:w-80 space-y-6">
+          {/* Right Sidebar */}
+           <aside className="w-full lg:w-80 space-y-6 sticky top-10 self-start">
             {/* Author Card */}
             <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl p-6 text-center shadow-lg border border-purple-100">
               <div className="relative inline-block mb-4">
@@ -459,6 +321,7 @@ export default function Page() {
               </ul>
             </div>
           </aside>
+
         </div>
       </div>
     </div>
