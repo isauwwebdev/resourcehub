@@ -14,7 +14,7 @@ const labelStyle = {
   backdropFilter: "blur(12px)",
   background:
     "linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9), rgba(241, 245, 249, 0.85))",
-  border: "2px solid rgba(255, 255, 255, 0.9)",
+  // border: "2px solid rgba(255, 255, 255, 0.9)", // Removed to avoid conflict with specific border properties
   boxShadow: `
     0 12px 40px rgba(0, 0, 0, 0.15),
     0 4px 16px rgba(0, 0, 0, 0.1),
@@ -409,13 +409,10 @@ export default function MapWithMarkers({ onMarkerClick }) {
           border-radius: 25px;
           font-size: 12px;
           font-weight: bold;
-          box-shadow:
-            0 8px 25px rgba(251, 191, 36, 0.4),
+          box-shadow: 0 8px 25px rgba(251, 191, 36, 0.4),
             0 3px 10px rgba(251, 191, 36, 0.3),
             inset 0 1px 0 rgba(255, 255, 255, 0.3);
-          animation:
-            pulse 2s infinite,
-            float 3s ease-in-out infinite;
+          animation: pulse 2s infinite, float 3s ease-in-out infinite;
           z-index: 25;
           overflow: hidden;
           text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -453,8 +450,7 @@ export default function MapWithMarkers({ onMarkerClick }) {
           font-size: 13px;
           font-weight: bold;
           z-index: 20;
-          box-shadow:
-            0 6px 20px rgba(59, 130, 246, 0.3),
+          box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3),
             0 2px 8px rgba(59, 130, 246, 0.2),
             inset 0 1px 0 rgba(255, 255, 255, 0.3);
           text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);

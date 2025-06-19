@@ -75,8 +75,12 @@ export default function Sarcb() {
   return (
     <div className="p-6 bg-white">
       <Breadcrumb />
-      <div className="flex flex-col-reverse md:flex-row w-full md:w-2/3 items-center justify-center p-6 bg-white mx-auto">
-        <div className="w-full max-w-md md:pr-6 flex items-center md:min-h-[300px]">
+      <div className="flex flex-col-reverse md:flex-row w-full items-center justify-center p-6 bg-white">
+        {" "}
+        {/* Removed md:w-2/3 and mx-auto */}
+        <div className="w-full md:pr-6 flex items-center md:min-h-[300px]">
+          {" "}
+          {/* Removed max-w-md */}
           <form onSubmit={handleSubmit} className="space-y-4 w-full">
             <h1
               style={{ fontSize: "2rem", marginBottom: "30px" }}

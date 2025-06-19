@@ -57,6 +57,15 @@ const cards = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     link: "/lifestyle",
   },
+  {
+    imageSrc: "/assets/card/cardimage(2).png",
+    iconSrc: "/assets/card/cardIcon(6).png",
+    location: "INTERNATIONAL DISTRICT",
+    title: "Sign Up for ISAUW",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    link: "/join-isauw",
+  },
 ];
 
 export default function CardViewer({ selectedIndex = 0, onClose }) {

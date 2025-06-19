@@ -62,7 +62,7 @@ export default function Page() {
         </h2>
       </div>
 
-      <div className="flex flex-col lg:flex-row gap-10">
+      <div className="flex flex-col lg:flex-row gap-10 text-gray-900">
         {/* Main Content */}
         <main className="flex-1 prose prose-lg max-w-none">
           {/* Student Organizations & Clubs */}
@@ -246,7 +246,7 @@ export default function Page() {
               SWE
             </p>
           </div>
-          <div className="bg-white border rounded-lg p-4">
+          <span className="w-2 h-2 bg-indigo-500 rounded-full mr-3">
             <h5 className="text-sm font-semibold mb-2 text-gray-800">
               In This Article
             </h5>
@@ -273,7 +273,7 @@ export default function Page() {
                 </a>
               </li>
             </ul>
-          </div>
+          </span>
           <div className="bg-white py-6 px-4 rounded-lg shadow">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">
               From the Blog
