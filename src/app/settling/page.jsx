@@ -68,7 +68,10 @@ export default function Page() {
         <Breadcrumb />
 
         {/* Enhanced Header */}
-        <div className="mt-8 mb-12 bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-700 text-white rounded-2xl p-8 shadow-2xl relative overflow-hidden">
+        <div
+          className="mt-8 mb-12 text-white rounded-2xl p-8 shadow-2xl relative overflow-hidden bg-cover bg-center"
+          style={{ backgroundImage: `url(${headerData.imageSrc})` }}
+        >
           <div className="absolute inset-0 bg-black/10"></div>
           <div className="relative z-10 text-center">
             <div className="inline-flex items-center px-4 py-2 bg-white/20 rounded-full text-sm font-medium mb-4 backdrop-blur-sm">

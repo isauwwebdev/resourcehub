@@ -75,7 +75,7 @@ export default function Sarcb() {
   return (
     <div className="p-6 bg-white">
       <Breadcrumb />
-      <div className="flex flex-col-reverse md:flex-row w-full items-center justify-center p-6 bg-white">
+      <div className="flex flex-col-reverse md:flex-row w-full items-center justify-center p-6 bg-white text-gray-700">
         {" "}
         {/* Removed md:w-2/3 and mx-auto */}
         <div className="w-full md:pr-6 flex items-center md:min-h-[300px]">

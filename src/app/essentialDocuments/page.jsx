@@ -32,16 +32,30 @@ export default function Page() {
     <div className="bg-white min-h-screen py-10 px-6 md:px-12 lg:px-32 xl:px-48">
       <Breadcrumb />
 
-      <div className="mt-8 mb-10 bg-gradient-to-r from-indigo-900 to-purple-700 text-white rounded-lg p-6 text-center">
-        <h1 className="text-lg tracking-widest font-semibold uppercase">
-          {headerData.location || "Campus Orientation"}
-        </h1>
-        <h2 className="text-3xl md:text-4xl font-bold mt-2">
-          {headerData.title || "Campus Orientation and Study Essentials"}
-        </h2>
+      <div
+        className="mt-8 mb-12 text-white rounded-2xl p-8 shadow-2xl relative overflow-hidden bg-cover bg-center"
+        style={{ backgroundImage: `url(${headerData.imageSrc})` }}
+      >
+        <div className="absolute inset-0 bg-black/10"></div>
+        <div className="relative z-10 text-center">
+          <div className="inline-flex items-center px-4 py-2 bg-white/20 rounded-full text-sm font-medium mb-4 backdrop-blur-sm">
+            <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+            {headerData.location || "Campus Orientation"}
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+            {headerData.title || "Campus Orientation and Study Essentials"}
+          </h1>
+          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            Your comprehensive guide to essential documents and resources for
+            settling in.
+          </p>
+        </div>
+        {/* Decorative elements */}
+        <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
+        <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-12 -translate-x-12"></div>
       </div>
 
-      <div className="flex flex-col lg:flex-row gap-10">
+      <div className="flex flex-col lg:flex-row gap-10 text-gray-900">
         <main className="flex-1 prose prose-lg max-w-none">
           <section id="orientation_onboarding" className="pb-10 mb-10">
             <h3 className="text-lg font-bold">Orientation & Onboarding</h3>
