@@ -1,12 +1,26 @@
 "use client";
-import React from "react";
 import { usePathname } from "next/navigation";
 import Breadcrumb from "../components/breadcrumb";
 import blogHeader from "../../../public/data/blogHeader.json";
 import Image from "next/image";
 import ChatBubble from "../components/chatBubble";
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+const slides = [
+  { icon: "/paulGAllenLogo.jpg", height: "220", width: "220" },
+  { icon: "/ischoolLogo.avif", height: "60" },
+  { icon: "/collegeEngineering.jpg", height: "220", width: "220" },
+];
+
+const duplicatedSlides = [...slides, ...slides];
 
 export default function Page() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   const titleName = usePathname().split("/").at(-1);
   const headerData = blogHeader[titleName] || {};
 
@@ -31,7 +45,7 @@ export default function Page() {
       title: "Undergraduate Research Assistantships",
       color: "purple",
     },
-    { id: "library_jobs", title: "UW Libraries", color: "indigo" }
+    { id: "library_jobs", title: "UW Libraries", color: "indigo" },
   ];
 
   return (
@@ -40,8 +54,12 @@ export default function Page() {
         <Breadcrumb />
 
         {/* Enhanced Header */}
-        <div className="mt-8 mb-12 bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-700 text-white rounded-2xl p-8 shadow-2xl relative overflow-hidden">
-          <div className="absolute inset-0 bg-black/10"></div>
+        <div
+          className="mt-8 mb-12 text-white rounded-2xl p-8 shadow-2xl relative overflow-hidden bg-cover bg-center"
+          style={{ backgroundImage: `url(${headerData.imageSrc})` }}
+        >
+          <div className="absolute inset-0 bg-black/30"></div>{" "}
+          {/* Increased overlay opacity slightly for better contrast */}
           <div className="relative z-10 text-center">
             <div className="inline-flex items-center px-4 py-2 bg-white/20 rounded-full text-sm font-medium mb-4 backdrop-blur-sm">
               <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
@@ -50,10 +68,11 @@ export default function Page() {
             <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
               {headerData.title || "Work Opportunities at UW"}
             </h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            <p className="text-blue-100 max-w-3xl mx-auto sm:text-md md:text-xl">
               Explore on-campus jobs, CPT, and OPT opportunities to gain
               experience and support your studies.
             </p>
+            {/* The Image component that was here has been removed as the image is now the background */}
           </div>
           <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
           <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-12 -translate-x-12"></div>
@@ -66,16 +85,16 @@ export default function Page() {
               {/* Article Header Image */}
               <div className="relative h-64 md:h-80">
                 <img
-                  src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" // Generic work-related image
+                  src="/diningStudentJobs.jpg"
                   alt="Work Opportunities at UW"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                <div className="absolute bottom-6 left-6 text-white">
+                <div className="absolute bottom-6 left-6 text-white text-wrap">
                   <p className="text-sm opacity-90">
                     Your Guide to Campus Employment
                   </p>
-                  <h2 className="text-2xl font-bold mt-1">
+                  <h2 className="text-2xl font-bold mt-1 max-w-lg text-wrap mr-3">
                     Finding Work at the University of Washington
                   </h2>
                 </div>
@@ -85,7 +104,7 @@ export default function Page() {
               <div className="p-8 md:p-12 prose prose-lg max-w-none">
                 <h2
                   id="on_campus_employment"
-                  className="text-3xl font-bold text-gray-900 mt-12 mb-6 border-l-4 border-blue-500 pl-4"
+                  className="text-3xl font-bold text-gray-900 mt-2 mb-6 border-l-4 border-blue-500 pl-4"
                 >
                   On-Campus Employment Opportunities at UW Seattle
                 </h2>
@@ -114,14 +133,18 @@ export default function Page() {
                   Most roles start at $20.76/hr (as of January 2025) with
                   flexible shifts to fit your class schedule.
                 </p>
-                <div className="bg-green-50 border-l-4 border-green-400 p-6 my-8 rounded-r-lg">
+                <div
+                  className="bg-green-50 border-l-4 border-green-400 p-6 my-8 rounded-r-lg"
+                  data-aos="fade-right"
+                  data-aos-duration="500"
+                >
+                  {" "}
                   <h4 className="font-semibold text-green-900 mb-2">
                     💡 HFS Perks
                   </h4>
                   <p className="text-green-800">
                     Many HFS jobs offer meal benefits or discounts, helping you
-                    save on food costs! Hear what our own ISAUW officer has to
-                    say about working at Starbucks:
+                    save on food costs!
                   </p>
                 </div>
 
@@ -140,13 +163,23 @@ export default function Page() {
                   well! Some benefits being a TA include:
                 </p>
                 <ul className="list-disc pl-5 space-y-1 text-gray-700 leading-relaxed text-lg mb-6">
-                  <li>Enrolled in at least 6 credits (for undergraduate TAs) or 10 credits (for graduate TAs)</li>
+                  <li>
+                    Enrolled in at least 6 credits (for undergraduate TAs) or 10
+                    credits (for graduate TAs)
+                  </li>
                   <li>Completion of the course</li>
                 </ul>
                 <p className="text-gray-700 leading-relaxed text-lg mb-6">
-                  Some of these roles can be applied through website portals, but can also be applied through emailing you professors. It is important to be proactive and getting close to professors whenever you have the chance. 
+                  Some of these roles can be applied through website portals,
+                  but can also be applied through emailing you professors. It is
+                  important to be proactive and getting close to professors
+                  whenever you have the chance.
                 </p>
-                 <div className="mt-8 bg-blue-50 border-l-4 border-blue-400 p-6 rounded-r-lg mb-4">
+                <div
+                  className="mt-8 bg-blue-50 border-l-4 border-blue-400 p-6 rounded-r-lg mb-4"
+                  data-aos="fade-right"
+                  data-aos-duration="500"
+                >
                   <h3 className="text-xl font-semibold text-blue-900 mb-2">
                     Some Useful TA Application Links
                   </h3>
@@ -158,7 +191,7 @@ export default function Page() {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        Apply to be a CSE 12X TA 
+                        Apply to be a CSE 12X TA
                       </a>
                     </li>
                     <li>
@@ -184,7 +217,41 @@ export default function Page() {
                     {/* Add more links as needed */}
                   </ul>
                 </div>
-          
+                <div
+                  className="relative h-[10rem] overflow-hidden py-12 mx-auto align-center my-auto justify-center flex items-center"
+                  style={{ width: "70%" }}
+                >
+                  <div className="absolute left-0 right-0 top-0 bottom-0 mx-auto inset-0 z-20 before:absolute before:left-0 before:top-0 before:w-1/4 before:h-full before:bg-gradient-to-r before:from-isauwRed before:to-transparent before:filter before:blur-3 after:absolute after:right-0 after:top-0 after:w-1/4 after:h-full after:bg-gradient-to-l after:from-isauwRed after:to-transparent after:filter after:blur-3"></div>
+
+                  <motion.div
+                    className="flex h-full items-center"
+                    animate={{
+                      x: ["0%", "-250%"],
+                      transition: {
+                        ease: "linear",
+                        duration: 3,
+                        repeat: Infinity,
+                      },
+                    }}
+                  >
+                    {duplicatedSlides.map((slide, index) => (
+                      <div
+                        key={index}
+                        className="flex-shrink-0"
+                        style={{ width: `${320 / slides.length}%` }}
+                      >
+                        <div className="flex items-center justify-center h-full">
+                          <img
+                            src={slide.icon}
+                            alt="sponsor logo"
+                            style={{ height: `${slide.height}px` }}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </motion.div>
+                </div>
+
                 <div className="bg-yellow-50 border-l-4 border-yellow-300 p-4 mb-6 rounded-r-lg">
                   <p className="text-yellow-800 text-base">
                     Note: Some departments (such as Mathematics and Physics) may
@@ -200,31 +267,19 @@ export default function Page() {
                   Undergraduate Research Assistantships
                 </h3>
                 <p className="text-gray-700 leading-relaxed text-lg mb-6">
-                  Undergraduate Research Assistantships (URAs) at the University of Washington (UW) offer students a valuable opportunity to engage in hands-on research across various disciplines. These positions allow undergraduates to collaborate with faculty members on real-world projects, enhancing their academic experience and providing practical skills applicable to future careers. 
+                  Undergraduate Research Assistantships (URAs) at the University
+                  of Washington (UW) offer students a valuable opportunity to
+                  engage in hands-on research across various disciplines. These
+                  positions allow undergraduates to collaborate with faculty
+                  members on real-world projects, enhancing their academic
+                  experience and providing practical skills applicable to future
+                  careers.
                 </p>
                 <ul className="list-disc pl-5 space-y-1 text-gray-700 leading-relaxed text-lg mb-6">
                   <li>Collaborate with faculty on real-world projects</li>
                   <li>Build experience in their major</li>
                   <li>Contribute to publications or conferences</li>
                   <li>Earn course credit in some cases</li>
-                </ul>
-                <p>Take a little sneak peek at what one of our ISAUW officers :</p>
-
-
-                <h3
-                  id="tech_positions"
-                  className="text-2xl font-semibold text-gray-800 mt-10 mb-4 border-l-4 border-teal-500 pl-3"
-                >
-                  Student Technology Positions
-                </h3>
-                <p className="text-gray-700 leading-relaxed text-lg mb-6">
-                  UW-IT and departmental offices hire for tech-related roles:
-                </p>
-                <ul className="list-disc pl-5 space-y-1 text-gray-700 leading-relaxed text-lg mb-6">
-                  <li>Help desk support</li>
-                  <li>Web development and design</li>
-                  <li>Computer lab monitoring</li>
-                  <li>AV setup and troubleshooting</li>
                 </ul>
 
                 <h3
@@ -276,13 +331,13 @@ export default function Page() {
           </main>
 
           {/* Right Sidebar */}
-           <aside className="w-full lg:w-80 space-y-6 sticky top-10 self-start">
+          <aside className="w-full lg:w-80 space-y-6 sticky top-10 self-start">
             {/* Author Card */}
             <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl p-6 text-center shadow-lg border border-purple-100">
               <div className="relative inline-block mb-4">
                 <Image
-                  src="/assets/enrico.png" // Assuming this path is correct and image exists
-                  alt="Author profile"
+                  src="/enricoPicBubble.jpeg"
+                  alt="Enrico profile"
                   width={80}
                   height={80}
                   className="rounded-full mx-auto border-4 border-white shadow-lg"
@@ -293,8 +348,8 @@ export default function Page() {
                 Enrico Pratama
               </h4>
               <p className="text-sm text-gray-600 mt-2 leading-relaxed">
-                AMAZON Intern • Teaching Assistant • CS Tutor • WebDev Lead •
-                Google SWE
+                Connect with me on LinkedIn to learn more about my journey and
+                experiences at the University of Washington!
               </p>
             </div>
 
@@ -321,7 +376,6 @@ export default function Page() {
               </ul>
             </div>
           </aside>
-
         </div>
       </div>
     </div>

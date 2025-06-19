@@ -10,7 +10,7 @@ const cards = [
     title: "Settling In",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    link: "/settlingIn",
+    link: "/settling",
   },
   {
     imageSrc: "/assets/card/cardimage(2).png",
@@ -28,7 +28,7 @@ const cards = [
     title: "Campus Orientation and Study Essentials",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    link: "/studyEssentials",
+    link: "/campus-study",
   },
   {
     imageSrc: "/assets/card/cardimage(2).png",
@@ -37,7 +37,7 @@ const cards = [
     title: "Social and Academic Integration",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    link: "/socialAcademicIntegration",
+    link: "/social",
   },
   {
     imageSrc: "/assets/card/cardimage1.png",
@@ -84,7 +84,7 @@ export default function CardViewer({ selectedIndex = 0, onClose }) {
   };
 
   return (
-    <div className="h-full flex flex-col">
+    <div className="h-full flex flex-col text-black">
       <button
         className="self-end m-4 text-xl"
         onClick={onClose}

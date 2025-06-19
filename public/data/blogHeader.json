@@ -1,37 +1,37 @@
 {
     "essentialDocuments" : {
         "title": "Essential Documents",
-        "imageSrc": "blue",
+        "imageSrc": "/essentialDocumentsHeader.png",
         "location" : "Northgate",
         "content" : ""
     },
     "checklistSummary" : {
         "title" : "Checklist Summary",
-        "imageSrc" : "white",
-        "location" : "",
-        "content" : ""
+        "imageSrc" : "/checklistSummaryHeader.png",
+        "location" : "N/A",
+        "content" : "N/A"
     },
     "campusstudy" : {
         "title" : "Campus Orientation & Study Essentials",
-        "imageSrc" : "white",
+        "imageSrc" : "/campusStudyHeader.png",
         "location" : "Ravenna",
         "content" : ""
     },
     "social" : {
         "title" : "Social & Academic Integration",
-        "imageSrc" : "purple",
+        "imageSrc" : "/socialHeader.png",
         "location" : "Downtown Seattle",
         "content" : ""
     },
     "settling" : {
         "title" : "Settling In",
-        "imageSrc" : "green",
+        "imageSrc" : "/settlingHeader.png",
         "location" : "U-district",
         "content" : ""
     },
     "work" : {
-        "title" : "On-campus Work Opportunities",
-        "imageSrc" : "purple",
+        "title" : "On-Campus Work Opportunities",
+        "imageSrc" : "/workHeader.png",
         "location" : "South Seattle",
         "content" : ""
     }

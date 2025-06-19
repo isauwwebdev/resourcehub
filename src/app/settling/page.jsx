@@ -204,8 +204,8 @@ export default function Page() {
             </article>
           </main>
 
-          {/* Sidebar */}
-          <aside className="w-full lg:w-80 space-y-6">
+          {/* Right Sidebar */}
+          <aside className="w-full lg:w-80 space-y-6 sticky top-10 self-start">
             {/* Table of Contents */}
             <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
               <h5 className="text-lg font-bold mb-4 text-gray-900 flex items-center">
@@ -348,7 +348,7 @@ export default function Page() {
               <div className="space-y-4">
                 {/* Chase */}
                 <div className="space-y-1">
-                  <div className="flex justify-between text-sm font-semibold">
+                  <div className="flex justify-between text-sm font-semibold text-gray-900">
                     <span>Chase</span>
                     <span>40%</span>
                   </div>
@@ -362,7 +362,7 @@ export default function Page() {
 
                 {/* Bank of America */}
                 <div className="space-y-1">
-                  <div className="flex justify-between text-sm font-semibold">
+                  <div className="flex justify-between text-sm font-semibold text-gray-900">
                     <span>Bank of America</span>
                     <span>25%</span>
                   </div>
@@ -376,7 +376,7 @@ export default function Page() {
 
                 {/* WSECU */}
                 <div className="space-y-1">
-                  <div className="flex justify-between text-sm font-semibold">
+                  <div className="flex justify-between text-sm font-semibold text-gray-900">
                     <span>WSECU</span>
                     <span>20%</span>
                   </div>
@@ -390,7 +390,7 @@ export default function Page() {
 
                 {/* Others */}
                 <div className="space-y-1">
-                  <div className="flex justify-between text-sm font-semibold">
+                  <div className="flex justify-between text-sm font-semibold text-gray-900">
                     <span>Others</span>
                     <span>15%</span>
                   </div>

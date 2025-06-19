@@ -17,20 +17,20 @@ export default function Card({
   animation,
   link,
 }) {
-
   const [resetKey, setResetKey] = useState(0);
   useEffect(() => {
     setResetKey((prevKey) => prevKey + 1);
-  }, [animation]); 
+  }, [animation]);
 
   return (
-    <div className="w-full max-w-lg mx-auto bg-white shadow-lg overflow-hidden sm:max-w-md md:max-w-lg lg:max-w-xl p-4 sm:p-6">
+    <div className="w-full max-w-lg mx-auto bg-white shadow-lg overflow-hidden sm:max-w-md md:max-w-lg lg:max-w-xl ">
       <div className="relative w-full h-77 ">
-        <Image src={imageSrc} alt={title} fill style={{ objectFit: "cover" }}/>
+        <Image src={imageSrc} alt={title} fill style={{ objectFit: "cover" }} />
       </div>
       <div className="p-10 -mt-6 mb-8">
         <div className="flex mt-4 mb-2 justify-end">
-          <button onClick={() => {
+          <button
+            onClick={() => {
               startAnimation(); // Start animation
               onPrev(); // Go to the next card
             }}
@@ -52,7 +52,7 @@ export default function Card({
             </svg>
           </button>
           <button
-             onClick={() => {
+            onClick={() => {
               startAnimation(); // Start animation
               onNext(); // Go to the next card
             }}
@@ -75,41 +75,41 @@ export default function Card({
           </button>
         </div>
         {/* card start here */}
-          <div>
-            <div className="relative w-11 h-11 mb-8 ">
-              <Image src={iconSrc} alt="Icon" layout="fill" objectFit="cover" />
-            </div>
-            <h2 className="font-poppins font-medium text-[14px] leading-[100%] tracking-tight text-red-800 mb-3">
-              {location}
-            </h2>
-            <h3 className="font-poppins font-medium text-[30px] leading-[100%] tracking-tight text-gray-700 mb-7">
-              {title}
-            </h3>
-            <p className="font-poppins font-normal text-[18px] leading-[100%] tracking-tight text-gray-600 mb-16">
-              {description}
-            </p>
-            <Link href={link} passHref>
-              <button className="px-18 py-2 bg-red-800 text-white text-lg font-semibold rounded-lg hover:bg-red-600 focus:outline-none">
-                Visit
-              </button>
-            </Link>
+        <div>
+          <div className="relative w-11 h-11 mb-8 ">
+            <Image src={iconSrc} alt="Icon" layout="fill" objectFit="cover" />
           </div>
-      {/* Train animation */}
-      <div className="flex items-center justify-center mt-8">
-        <motion.div
-              key={resetKey}
-              initial={{ x: "-220%" }}
-              animate={{ x: animation ? "-200%" : "250%" }}
-              transition={{ duration: 1.7}}
-            >
-        <Image
+          <h2 className="font-poppins font-medium text-[14px] leading-[100%] tracking-tight text-red-800 mb-3">
+            {location}
+          </h2>
+          <h3 className="font-poppins font-medium text-[30px] leading-[100%] tracking-tight text-gray-700 mb-7">
+            {title}
+          </h3>
+          <p className="font-poppins font-normal text-[18px] leading-[100%] tracking-tight text-gray-600 mb-16">
+            {description}
+          </p>
+          <Link href={link} passHref>
+            <button className="px-18 py-2 bg-red-800 text-white text-lg font-semibold rounded-lg hover:bg-red-600 focus:outline-none">
+              Visit
+            </button>
+          </Link>
+        </div>
+        {/* Train animation */}
+        <div className="flex items-center justify-center mt-8">
+          <motion.div
+            key={resetKey}
+            initial={{ x: "-220%" }}
+            animate={{ x: animation ? "-200%" : "250%" }}
+            transition={{ duration: 1.7 }}
+          >
+            <Image
               src="/train_frame.png"
               alt="train frame"
               width={200}
               height={200}
-        />
-        </motion.div>
-      </div>
+            />
+          </motion.div>
+        </div>
       </div>
     </div>
   );
