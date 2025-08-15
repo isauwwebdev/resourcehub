@@ -87,6 +87,7 @@ export default function ChecklistSummary() {
                   onToggleComplete={() => handleToggleComplete(step.id)}
                 />
               ))}
+              //test
             </div>
           </div>
         </div>
