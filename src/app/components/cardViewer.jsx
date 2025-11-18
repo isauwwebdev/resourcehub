@@ -93,7 +93,7 @@ export default function CardViewer({ selectedIndex = 0, onClose }) {
   };
 
   return (
-    <div className="h-screen flex flex-col text-black">
+    <div className="h-full flex flex-col text-black">
       <div className="flex-1 flex items-center justify-center">
         <Card
           {...cards[currentIndex]}
