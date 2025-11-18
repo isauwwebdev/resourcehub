@@ -24,7 +24,7 @@ export default function Card({
   }, [animation]);
 
   return (
-    <div className="w-full h-full mx-auto bg-white shadow-lg overflow-hidden ">
+    <div className="w-full h-full mx-auto bg-[#FFF7EE] shadow-lg overflow-hidden ">
       <div className="relative w-full aspect-video md:h-72 ">
         <Image src={imageSrc} alt={title} fill style={{ objectFit: "cover" }} />
         <button
