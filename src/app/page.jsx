@@ -49,7 +49,7 @@ export default function Home() {
             animate={{ x: selectedIndex !== null ? 0 : "100%" }}
             transition={{ type: "tween", duration: 0.45 }}
             className={
-              "fixed right-0 top-0 h-full w-full max-w-md z-50 bg-white shadow-xl"
+              "fixed right-0 top-0 h-screen w-full md:w-96 lg:w-[28rem] z-[9999] bg-white shadow-xl overflow-hidden"
             }
           >
             {selectedIndex !== null && (
