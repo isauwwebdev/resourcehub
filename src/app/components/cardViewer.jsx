@@ -34,7 +34,7 @@ const cards = [
     imageSrc: "/assets/card/cardimage(2).png",
     iconSrc: "/assets/card/cardIcon(4).png",
     location: "DOWNTOWN SEATTLE",
-    title: "Social & Academic Integration",
+    title: "Campus Life",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     link: "/social",
