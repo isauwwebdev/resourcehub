@@ -16,6 +16,7 @@ export default function Card({
   startAnimation, // Accept startAnimation prop
   animation,
   link,
+  onClose, 
 }) {
   const [resetKey, setResetKey] = useState(0);
   useEffect(() => {
@@ -24,10 +25,36 @@ export default function Card({
 
   return (
     <div className="w-full max-w-lg mx-auto bg-white shadow-lg overflow-hidden sm:max-w-md md:max-w-lg lg:max-w-xl ">
-      <div className="relative w-full h-77 ">
+      <div className="relative w-full h-72 ">
         <Image src={imageSrc} alt={title} fill style={{ objectFit: "cover" }} />
+        <button
+          onClick={onClose}
+          aria-label="Close"
+          className="absolute right-0 w-9 h-9 z-50
+            flex items-center justify-center bg-white/70
+            shadow-md
+          "
+        >
+          <span
+            className="
+              absolute block
+              w-5 h-0.5
+              bg-red-800
+              rotate-45
+            "
+          />
+          <span
+            className="
+              absolute block
+              w-5 h-0.5
+              bg-red-800
+              -rotate-45
+            "
+          />
+        </button>
       </div>
-      <div className="p-10 -mt-6 mb-8">
+
+      <div className="p-10 -mt-8 mb-8">
         <div className="flex mt-4 mb-2 justify-end">
           <button
             onClick={() => {
@@ -85,7 +112,7 @@ export default function Card({
           <h3 className="font-poppins font-medium text-[30px] leading-[100%] tracking-tight text-gray-700 mb-7">
             {title}
           </h3>
-          <p className="font-poppins font-normal text-[18px] leading-[100%] tracking-tight text-gray-600 mb-16">
+          <p className="font-poppins font-normal text-[18px] leading-[100%] tracking-tight text-gray-600 mb-10">
             {description}
           </p>
           <Link href={link} passHref>

@@ -16,7 +16,7 @@ const cards = [
     imageSrc: "/assets/card/cardimage(2).png",
     iconSrc: "/assets/card/cardIcon(2).png",
     location: "NORTHGATE",
-    title: "Essential Documents and Preparations",
+    title: "Essential Documents",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     link: "/essentialDocuments",
@@ -25,7 +25,7 @@ const cards = [
     imageSrc: "/assets/card/cardimage1.png",
     iconSrc: "/assets/card/cardIcon(3).png",
     location: "RAVENNA",
-    title: "Campus Orientation and Study Essentials",
+    title: "Campus Orientation",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     link: "/campus-study",
@@ -34,7 +34,7 @@ const cards = [
     imageSrc: "/assets/card/cardimage(2).png",
     iconSrc: "/assets/card/cardIcon(4).png",
     location: "DOWNTOWN SEATTLE",
-    title: "Social and Academic Integration",
+    title: "Social & Academic Integration",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     link: "/social",
@@ -43,7 +43,7 @@ const cards = [
     imageSrc: "/assets/card/cardimage1.png",
     iconSrc: "/assets/card/cardIcon(5).png",
     location: "SOUTH SEATTLE",
-    title: "Part-Time Work and Academic Credits",
+    title: "Work Opportunities",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     link: "/work",
@@ -93,22 +93,15 @@ export default function CardViewer({ selectedIndex = 0, onClose }) {
   };
 
   return (
-    <div className="h-full flex flex-col text-black">
-      <button
-        className="self-end m-4 text-xl"
-        onClick={onClose}
-        aria-label="Close"
-      >
-        ✕
-      </button>
-
-      <div className="flex-1 overflow-y-auto">
+    <div className="h-screen flex flex-col text-black">
+      <div className="flex-1 flex items-center justify-center">
         <Card
           {...cards[currentIndex]}
           onPrev={handlePrev}
           onNext={handleNext}
           startAnimation={startAnimation}
           animation={animation}
+          onClose={onClose}
         />
       </div>
     </div>
