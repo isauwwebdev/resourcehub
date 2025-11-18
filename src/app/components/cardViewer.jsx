@@ -52,7 +52,7 @@ const cards = [
     imageSrc: "/assets/card/cardimage(2).png",
     iconSrc: "/assets/card/cardIcon(6).png",
     location: "BELLEVUE",
-    title: "Lifestyle and Adjustments",
+    title: "Lifestyle",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     link: "/lifestyle",
@@ -61,7 +61,7 @@ const cards = [
     imageSrc: "/assets/card/cardimage(2).png",
     iconSrc: "/assets/card/cardIcon(6).png",
     location: "INTERNATIONAL DISTRICT",
-    title: "Sign Up for ISAUW",
+    title: "Join ISAUW",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     link: "/join-isauw",
